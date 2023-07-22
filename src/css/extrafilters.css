@@ -1,0 +1,219 @@
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.extra-filters-section {
+  padding: 0 20px;
+  margin-top: 40px;
+  width: 375px;
+}
+
+.extra-filters-form {
+  width: 335px;
+  height: auto;
+  display: flex;
+  gap: 14px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.form-el-wrap {
+  position: relative;
+}
+
+.extra-filters-form-label {
+  display: block;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.extra-filters-form-input {
+  display: inline-block;
+  margin-top: 8px;
+  max-width: 335px;
+  min-height: 46px;
+  padding: 14px 122px 14px 48px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.extra-filters-form-input::placeholder {
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.extra-filters-search-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 18px;
+  top: 36px;
+  fill: rgba(5, 5, 5, 50%);
+}
+
+.extra-filters-search-icon-close {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 18px;
+  top: 38px;
+  fill: #050505;
+}
+
+.extra-filters-form-input:focus + .extra-filters-search-icon {
+  fill: #9bb537;
+}
+
+.extra-filters-form-select {
+  display: inline-block;
+  margin-top: 8px;
+  width: 160px;
+  min-height: 46px;
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  overflow: auto;
+}
+
+.form-el-time,
+.form-el-area {
+  flex-basis: calc((100% - 14px) / 2);
+}
+
+.form-el-ingredients .extra-filters-form-select {
+  width: 188px;
+}
+
+.extra-filters-form-select:is(:hover, :focus) {
+  color: #050505;
+}
+
+option {
+  color: rgba(5, 5, 5, 0.5);
+  height: 188px;
+  overflow: auto;
+}
+option:is(:hover, :focus) {
+  color: #050505;
+  background-color: transparent;
+}
+
+.form-el-time option {
+  height: 125px;
+}
+
+.option-choosed {
+  color: #050505;
+  background-color: transparent;
+}
+.extra-filters-reset-btn {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.33;
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin-left: 230px;
+  height: 16px;
+  width: 105px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .extra-filters-section {
+    padding: 0;
+    margin-top: 80px;
+    width: 544px;
+  }
+
+  .extra-filters-form {
+    gap: 16px;
+    width: 419px;
+  }
+
+  .extra-filters-form-label {
+    font-size: 14px;
+    line-height: 1.28;
+  }
+
+  .extra-filters-form-input {
+    min-height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+    width: 278px;
+  }
+
+  .extra-filters-search-icon {
+    top: 41px;
+  }
+
+  .extra-filters-search-icon-close {
+    top: 43px;
+  }
+
+  .extra-filters-form-select {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .form-el-search {
+    width: 278px;
+  }
+
+  .extra-filters-reset-btn {
+    margin-left: 391px;
+  }
+
+  .form-el-time,
+  .form-el-area {
+    flex-basis: 0;
+  }
+
+  .form-el-time .extra-filters-form-select {
+    width: 125px;
+  }
+
+  .form-el-area .extra-filters-form-select {
+    width: 141px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .extra-filters-section {
+    margin-top: 100px;
+    width: 780px;
+  }
+
+  .extra-filters-form {
+    width: 780px;
+  }
+
+  .extra-filters-reset-btn {
+    margin-left: 676px;
+  }
+}

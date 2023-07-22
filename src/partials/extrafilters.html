@@ -1,0 +1,66 @@
+<section class="extra-filters-section">
+  <form action="" class="extra-filters-form">
+    <div class="form-el-wrap form-el-search">
+      <label class="extra-filters-form-label"
+        >Search
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter Text"
+          class="extra-filters-form-input"
+        />
+
+        <svg class="extra-filters-search-icon" width="18" height="18">
+          <use href="./images/sprite/icons.svg#icon-search"></use>
+        </svg>
+        <svg class="extra-filters-search-icon-close" width="18" height="18">
+          <use href="./images/sprite/icons.svg#icon-x"></use>
+        </svg>
+      </label>
+    </div>
+
+    <div class="form-el-wrap form-el-time">
+      <label class="extra-filters-form-label">Time </label>
+      <select id="time" name="time" class="extra-filters-form-select">
+        <!-- <option value="xs" >Extra Small</option>
+  <option value="s">Small</option>
+  <option value="m" selected>Medium</option>
+  <option value="l">Large</option> -->
+      </select>
+    </div>
+
+    <div class="form-el-wrap form-el-area">
+      <label class="extra-filters-form-label">Area </label>
+      <select id="area" name="area" class="extra-filters-form-select">
+        <!-- <option value="xs">Extra Small</option>
+  <option value="s">Small</option>
+  <option value="m" selected>Medium</option>
+  <option value="l">Large</option> -->
+      </select>
+    </div>
+
+    <div class="form-el-wrap form-el-ingredients">
+      <label class="extra-filters-form-label">Ingredients </label>
+      <select
+        id="ingredients"
+        name="ingredients"
+        class="extra-filters-form-select"
+      >
+        <!-- <option value="xs">Extra Small</option>
+  <option value="s">Small</option>
+  <option value="m" selected>Medium</option>
+  <option value="l">Large</option> -->
+      </select>
+    </div>
+  </form>
+  <button
+    type="submit"
+    class="extra-filters-reset-btn"
+    data-extra-filters-reset-btn
+  >
+    <svg class="" width="16" height="16" style="fill: #9bb537">
+      <use href="./images/sprite/icons.svg#icon-x"></use>
+    </svg>
+    <span class="extra-filters-reset-text"> Reset the filter</span>
+  </button>
+</section>
