@@ -1,0 +1,245 @@
+@media screen and (min-width: 1080px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+
+  .hero {
+    background-image: url(../images/favorites-hero-1x.jpg);
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    margin-right: 32px;
+    margin-left: 32px;
+    margin-bottom: 72px;
+  }
+
+  .hero-title {
+    padding-top: 381px;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+      background-image: url(../images/favorites-hero-2x.jpg);
+    }
+  }
+}
+
+
+
+
+/* 
+  .card-link:hover {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+      0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    border-radius: 0px 0px 4px 4px;
+  }
+ 
+  .section-portfolio {
+    padding-top: 96px;
+    padding-bottom: 120px;
+  }
+  .text {
+    background: #ffffff;
+    border: 1px solid #e7e9fc;
+    padding-top: 32px;
+    border-top: none;
+    padding-left: 16px;
+  }
+ 
+  .list-markers {
+    list-style-type: none;
+  }
+  
+  img {
+    display: block;
+  }
+ 
+  .conteanir {
+    width: 1158px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  
+  .text-link {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.33;
+    letter-spacing: 0.02em;
+    color: var(--slate);
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-title-one {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.07;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    text-align: center;
+    width: 496px;
+    margin: 0px auto;
+    margin-bottom: 48px;
+  }
+  .title-What {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: var(--navyblue);
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .photo-one {
+    flex-grow: 0;
+    display: flex;
+    gap: 24px;
+    margin-top: 72px;
+  }
+  .title-Our {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--navyblue);
+    text-align: center;
+  }
+  .list-title-our-team {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.33;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: var(--navyblue);
+    background: var(--white);
+    padding-top: 32px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-text-our-team {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.33;
+    color: var(--slate);
+    display: flex;
+    justify-content: center;
+    background: var(--white);
+    padding: 8px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+ 
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+  
+  .list-text-studio {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.33;
+    letter-spacing: 0.02em;
+    color: var(--slate);
+  }
+  .list-title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  .list-text {
+    position: relative;
+    padding: 24px 0;
+    display: inline-block;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #434455;
+    text-decoration: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-text-portfolio {
+    position: relative;
+    padding: 24px 0;
+    display: inline-block;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #434455;
+    text-decoration: none;
+  }
+  .card-link {
+    text-decoration: none;
+    display: block;
+    width: 360px;
+    height: 420px;
+  }
+  .card-overlay {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+    background: #4d5ae5;
+    mix-blend-mode: normal;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 0.35s linear;
+    overflow: scroll;
+    padding: 40px 32px 164px 32px;
+  }
+  .text-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-link:hover .card-overlay {
+    transform: translateY(0);
+    background: #4d5ae5;
+  }
+ 
+  .social-media {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+  
+  
+    
+  
+  
+    
+   */
