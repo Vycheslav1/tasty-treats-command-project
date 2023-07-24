@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* visibility: hidden; */
 }
 .modal {
   position: absolute;
@@ -26,7 +27,6 @@
   padding: 40px 20px;
   width: 100%;
   min-height: 100%;
-
   background-color: #f8f8f8;
 }
 /* .backdrop.is-hidden {
@@ -53,4 +53,14 @@
 }
 .modal-close-icon {
   stroke: #050505;
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  stroke: #9bb537;
+}
+
+.icon-close.trailer {
+  stroke: #f1f1f1;
+  fill: #f1f1f1;
 }
