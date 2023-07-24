@@ -1,0 +1,29 @@
+@media screen and (min-device-pixel-ratio: 1) and (min-width: 768px) and (max-width: 1199px),
+  screen and (min-resolution: 96dpi) and (min-width: 768px) and (max-width: 1199px),
+  screen and (min-resolution: 1dppx) and (min-width: 768px) and (max-width: 1199px) {
+  .hero-favorites {
+    width: 704px;
+    height: 356px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../images/card-favorites-hero-704-1x_480.jpg);
+    border-radius: 15px;
+    /* background-repeat: no-repeat; */
+    /* background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1199px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1199px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1199px) {
+  .hero-favorites{
+    width: 704px;
+    height: 356px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(../images/card-favorites-hero-704-2x_720.jpg);
+    border-radius: 15px;
+    /* background-repeat: no-repeat; */
+    /* background-repeat: no-repeat; */
+  }
+}
