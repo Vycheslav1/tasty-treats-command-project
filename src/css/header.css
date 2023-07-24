@@ -1,3 +1,16 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #DDDDDD;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
 @media screen and (min-width: 768px) {
   .header-nav {
     padding-top: 30px;
@@ -18,15 +31,54 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .header-list {
     display: none;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .header-list {
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-logo {
+    letter-spacing: -0.72px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+.header-logo {
+  text-align: center;
+  letter-spacing: -0.64px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/* link */
+.header-link-home,
+.header-link-favorites {
+  font-size: 12px;
+  line-height: 14.52px;
+  font-weight: 400;
+}
+
+.header-link-home {
+  color: #9BB537;
+}
+
+.header-link-favorites {
+  color: #050505;
+}
+
 .header-logo-tasty {
-  /* вынести в root */
-  color: 9BB537;
+  /* винести в root */
+  color: #9BB537;
   text-align: center;
   letter-spacing: -4%;
   font-size: 16px;
@@ -35,6 +87,112 @@
 }
 
 .header-logo-treats {
-  /* вынести в root */
-  color: 050505;
+  /* винести в root */
+  color: #050505;
+}
+
+/* стилі контейнера */
+@media screen and (min-width: 768px) {
+  .switch {
+    display: block;
+    padding-top: -25px;
+    position: relative;
+    width: 46px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .switch {
+    display: none;
+  }
+}
+
+/* сховати галочку */
+.switch-input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: 35px;
+}
+
+/* слайдер */
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 46px;
+  height: 20px;
+  border-radius: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* винести в змінну */
+  background-color: #CECDCD;
+  transition: 0.4s;
+}
+
+.switch-slider::before {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  right: 0.6px;
+  left: 0.6px;
+  bottom: 0.6px;
+  height: 18.8px;
+  width: 18.8px;
+  border-radius: 50%;
+  /* винести в змінну */
+  background-color: #F3F3F3;
+  transition: 0.4s;
+}
+
+/* стилі при фокусі */
+.switch-input:focus+.switch-slider {
+  box-shadow: 0 0 1px gold;
+}
+
+/* стилі при виборі прапорця */
+.switch-input:checked+.switch-slider {
+  /* винести в змінну */
+  background-color: #9BB537;
+}
+
+.switch-input:checked+.switch-slider::before {
+  transform: translateX(25px);
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+}
+
+/* burger */
+/* Загальні стилі для чорних іконок */
+@media screen and (min-width: 768px) {
+  .header-burger {
+    display: none;
+  }
+}
+
+.header-burger,
+.header-svg img,
+.header-logo-treats,
+.header-link-favorites {
+  filter: invert(0%);
+  width: 32px;
+  height: 32px;
+}
+
+/* Стилі для білих іконок у темній темі */
+.dark-theme .header-burger.white,
+.dark-theme .header-svg img.white,
+.dark-theme .header-logo-treats.white,
+.dark-theme .header-link-favorites.white {
+  filter: invert(1);
+}
+
+/* svg */
+.header-svg {
+  align-items: center;
+  gap: 14px;
+  display: flex;
 }

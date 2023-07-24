@@ -1,17 +1,19 @@
-<div class="container header-container">
+<div class="container header-container dark-theme">
   <nav class="header-nav">
     <ul class="header-list">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Favorites</a></li>
+      <li><a href="#" class="header-link-home">Home</a></li>
+      <li><a href="#" class="header-link-favorites">Favorites</a></li>
     </ul>
-    <a class="header-ink header-logo-tasty" href="#">tasty<span class="header-logo-treats">treats.</span></a>
+    <a class="header-logo header-logo-tasty" href="#">tasty<span class="header-logo-treats">treats.</span></a>
     <div class="header-svg">
-      <a href="#" target="_blank" rel="noopener noreferrer" class="shopping-cart">
-        <svg class="header-shopping-cart-svg" width="24" height="24">
-          <!-- <use href="/svg/shopping-cart.svg#shopping-cart"></use> -->
-        </svg>
-      </a>
+      <img class="header-shopping" src="./images/svg/shopping-cart.svg" alt="My Happy SVG" />
+      <img class="header-burger" src="./images/svg/align-justify.svg" alt="My Happy SVG-burger" />
+      <div class="js-swither">
+        <label class="switch">
+          <input type="checkbox" class="switch-input">
+          <span class="switch-slider"></span>
+        </label>
+      </div>
     </div>
   </nav>
-
 </div>
