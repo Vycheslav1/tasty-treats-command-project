@@ -41,7 +41,7 @@ getAllEvents().then(({data})=>{
 function createMarkup(events){
 return events.map(({cook,topic:{name,area,imgUrl,previewUrl}}) =>{
   const markup = `
-<div class="div swiper-slide filtering">
+<div class="swiper-container swiper-slide">
   <div class="image cook">
     <img class="cook-img" src="${cook.imgUrl}" alt="${cook.name}">
     </div>
