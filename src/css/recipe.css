@@ -29,9 +29,9 @@
   min-height: 100%;
   background-color: #f8f8f8;
 }
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
   display: none;
-} */
+}
 
 .modal-close {
   /* color: var(--modal-overlay-color);
