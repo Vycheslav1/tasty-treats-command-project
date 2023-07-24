@@ -1,0 +1,54 @@
+.block {
+  width: 235px;
+  border: 1px solid #111111;
+  margin-bottom: 10px;
+}
+.article {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.article img {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  border-radius: 8;
+}
+.article-title {
+  width: 136px;
+  height: 18px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #050505;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.article-text {
+  width: 155px;
+  height: 41px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: rgba(5, 5, 5, 0.8);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  overflow: hidden;
+  whitespace: nowrap;
+}
+.popular-recipes-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #050505;
+}
