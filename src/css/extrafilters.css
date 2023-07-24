@@ -1,3 +1,17 @@
+/* 
+.dark-extra-filters-form-input - на інпут в inputExtraFiltersForm темна версія
+.light-extra-filters-form-input - на інпут в inputExtraFiltersForm світла версія
+ 
+extra-filters-search-icon-close-dark - на свг в  searchResetBtnInputExtraFiltersForm темна версія
+extra-filters-search-icon-close-light - на свг в  searchResetBtnInputExtraFiltersForm світла версія
+
+.dark-extra-filters-label - на лейбл.  треба буде винести окремим рефом. темна версія.
+.light-extra-filters-label - на лейбл. треба буде винести окремим рефом. світла версія
+
+.dark-extra-filters-form-select - на форму селекту в timeExtraFiltersForm , areaExtraFiltersForm та ingredientsExtraFiltersForm . темна тема
+.light-extra-filters-form-select - на форму селекту в timeExtraFiltersForm , areaExtraFiltersForm та ingredientsExtraFiltersForm . світла тема
+*/
+
 svg {
   max-width: 100%;
   height: auto;
@@ -26,7 +40,6 @@ svg {
 
 .extra-filters-form-label {
   display: block;
-  color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -42,16 +55,28 @@ svg {
   padding: 14px 122px 14px 48px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  color: #050505;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
+  background-color: transparent;
 }
 
-.extra-filters-form-input::placeholder {
+.light-extra-filters-form-input {
+  color: #050505;
+}
+
+.light-extra-filters-form-input ::placeholder {
   color: rgba(5, 5, 5, 0.5);
+}
+
+.dark-extra-filters-form-input {
+  color: #fff;
+}
+
+.dark-extra-filters-form-input ::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .extra-filters-search-icon {
@@ -63,16 +88,26 @@ svg {
   fill: rgba(5, 5, 5, 50%);
 }
 
-.extra-filters-search-icon-close {
+.extra-filters-search-reset-btn {
   width: 18px;
   height: 18px;
   position: absolute;
   right: 18px;
   top: 38px;
-  fill: #050505;
+  border: none;
+  background-color: transparent;
+  padding: 0;
 }
 
-.extra-filters-form-input:focus + .extra-filters-search-icon {
+.extra-filters-search-icon-close-lignt {
+  stroke: #050505;
+}
+
+.extra-filters-search-icon-close-dark {
+  stroke: #ffffff;
+}
+
+.extra-filters-form-input:is(:focus, :hover) + .extra-filters-search-icon {
   fill: #9bb537;
 }
 
@@ -84,13 +119,23 @@ svg {
   padding: 14px 18px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  color: rgba(5, 5, 5, 0.5);
+  background-color: transparent;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
   overflow: auto;
+}
+
+.light-extra-filters-label,
+.light-extra-filters-form-select {
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.dark-extra-filters-label,
+.dark-extra-filters-form-select {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .form-el-time,
@@ -102,8 +147,12 @@ svg {
   width: 188px;
 }
 
-.extra-filters-form-select:is(:hover, :focus) {
+.light-extra-filters-form-select:is(:hover, :focus) {
   color: #050505;
+}
+
+.dark-extra-filters-form-select:is(:hover, :focus) {
+  color: #fff;
 }
 
 option {
@@ -139,9 +188,9 @@ option:is(:hover, :focus) {
   width: 105px;
   cursor: pointer;
   text-decoration: none;
+  align-items: center;
   display: flex;
   gap: 4px;
-  margin-top: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -153,7 +202,8 @@ option:is(:hover, :focus) {
 
   .extra-filters-form {
     gap: 16px;
-    width: 419px;
+    width: 544px;
+    /* width: 419px; оскільки кнопку перенесла всередину форми */
   }
 
   .extra-filters-form-label {
@@ -173,7 +223,7 @@ option:is(:hover, :focus) {
   }
 
   .extra-filters-search-icon-close {
-    top: 43px;
+    top: 42px;
   }
 
   .extra-filters-form-select {
@@ -214,6 +264,6 @@ option:is(:hover, :focus) {
   }
 
   .extra-filters-reset-btn {
-    margin-left: 676px;
+    margin-left: 674px;
   }
 }
