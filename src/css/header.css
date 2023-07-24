@@ -182,6 +182,18 @@ ul {
   height: 32px;
 }
 
+@media screen and (max-width: 768px) {
+
+  .header-burger,
+  .header-svg img,
+  .header-logo-treats,
+  .header-link-favorites {
+    filter: invert(0%);
+    width: 24px;
+    height: 24px;
+  }
+}
+
 /* Стилі для білих іконок у темній темі */
 .dark-theme .header-burger.white,
 .dark-theme .header-svg img.white,
