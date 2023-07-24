@@ -1,5 +1,11 @@
 import axios from "axios";
 
+import Notiflix from 'notiflix';
+
+// one by one
+
+import { Report } from 'notiflix/build/notiflix-report-aio';
+
 const tastyTreats = axios.create({
     baseURL:"https://tasty-treats-backend.p.goit.global/api",
 });
@@ -13,31 +19,49 @@ const refs={
 }
 
 getAllEvents().then(({data})=>{
-    console.log(data)
-    const markup = createMarkup(data);
-    refs.images.insertAdjacentHTML('beforeend',markup);     
+  console.log(data)
+  const markup = createMarkup(data);
+  refs.images.insertAdjacentHTML('beforeend',markup);     
+  // Swiper.use([Navigation, Pagination]);
+  const swiper = new Swiper('.swiper', {    
+    // Optional parameters  
     
-    const swiper = new Swiper('.swiper', {    
-      // Optional parameters     
-    loop: true,  
     effect: 'cube',
     cubeEffect: {
-    slideShadows: false,     
-    },
+    slideShadows: false,
+    
+  },
     autoplay: {
-    delay: 3000,
-    disableOnInteraction:false,    
-    },
-    mousewheel: {
-    invert: true,    
-    },     
+  delay: 3000,
+  disableOnInteraction:false,    
+  },
+  mousewheel: {
+  invert: true,
+  
+  },            
+    loop: true,       
+    // If we need pagination
     pagination: {
-        el: '.swiper-pagination',  
-        clickable: true,        
+      el: '.swiper-pagination',  
+      clickable: true,      
     },      
-    });
-})
+  });
+}).catch(
+onError
+);
 
+
+function onError(){
+Notiflix.Report.warning(
+  'ERROR',
+  'Oops, something went wrong 🥺. Please try reloading the page!',
+  'CLOSE',
+  {
+    width: '360px',
+    svgSize: '120px',
+  },
+);
+}
 function createMarkup(events){
 return events.map(({cook,topic:{name,area,imgUrl,previewUrl}}) =>{
   const markup = `
