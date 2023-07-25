@@ -1,2 +1,2 @@
 !function(){var e=document.querySelector(".header-menu-container"),t=document.querySelector(".menu-toggle"),n=document.querySelector(".burger-switch-input");t.addEventListener("click",(function(){e.classList.toggle("active")})),n.addEventListener("change",(function(e){e.target.checked?console.log("Переключатель включен"):console.log("Переключатель выключен")}))}();
-//# sourceMappingURL=favorites-page.97b2e875.js.map
+//# sourceMappingURL=index.2325257f.js.map
