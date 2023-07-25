@@ -8,10 +8,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(../images/card-favorites-hero-335-1x_480.jpg);
     border-radius: 15px;
-    /* background-repeat: no-repeat; 
-     display: flex;
-    align-items: center;
-    justify-content: center; */
+    
   }
   
 }
@@ -24,7 +21,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(../images/card-favorites-hero-335-2x_720.jpg);
     border-radius: 15px;
-    /* background-repeat: no-repeat; */
+   
   }
 }
 
