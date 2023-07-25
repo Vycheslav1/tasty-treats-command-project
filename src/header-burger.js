@@ -1,43 +1,74 @@
-(() => {
-  const mobileMenu = document.querySelector('.header-menu-container');
-  const openMenuBtn = document.querySelector('.js-header-open-menu');
-  const closeMenuBtn = document.querySelector('.js-header-close-menu');
+const mobileMenu = document.querySelector('.header-menu-container');
+const openMenuBtn = document.querySelector('.js-header-open-menu');
+const closeMenuBtn = document.querySelector('.js-header-close-menu');
 
-  const toggleMenu = () => {
-    const isMenuOpen =
-      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
+const toggleMenu = () => {
+  const isMenuOpen =
+    openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+  openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
+  mobileMenu.classList.toggle('is-open');
 
-    const scrollLockMethod = !isMenuOpen
-      ? 'disableBodyScroll'
-      : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+  if (!isMenuOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+};
+
+openMenuBtn.addEventListener('click', toggleMenu);
+closeMenuBtn.addEventListener('click', toggleMenu);
+window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+  if (!e.matches) return;
+  mobileMenu.classList.remove('is-open');
+  openMenuBtn.setAttribute('aria-expanded', false);
+  document.body.style.overflow = 'auto';
+});
+
+// купить
+const modalController = ({ modal, btnOpen, btnClose, time = 300 }) => {
+  const buttonElems = document.querySelectorAll(btnOpen);
+  const modalElem = document.querySelector(modal);
+
+  modalElem.style.cssText = `
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity ${time}ms ease-in-out;
+  `;
+
+  const closeModal = event => {
+    const target = event.target;
+
+    if (
+      target === modalElem ||
+      (btnClose && target.closest(btnClose)) ||
+      event.code === 'Escape'
+    ) {
+      modalElem.style.opacity = 0;
+
+      setTimeout(() => {
+        modalElem.style.visibility = 'hidden';
+      }, time);
+
+      window.removeEventListener('keydown', closeModal);
+    }
   };
 
-  openMenuBtn.addEventListener('click', toggleMenu);
-  closeMenuBtn.addEventListener('click', toggleMenu);
+  const openModal = () => {
+    modalElem.style.visibility = 'visible';
+    modalElem.style.opacity = 1;
+    window.addEventListener('keydown', closeModal);
+  };
 
-  // Close the mobile menu on wider screens if the device orientation changes
-  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    mobileMenu.classList.remove('is-open');
-    openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
+  buttonElems.forEach(btn => {
+    btn.addEventListener('click', openModal);
   });
-})();
-// window.addEventListener('DOMContentLoaded', () => {
-//   const modal = document.querySelector('.js-modal');
 
-//   window.addEventListener('mouseup', e => {
-//     if (!e.target.closest('.js-open-modal')) return;
+  modalElem.addEventListener('click', closeModal);
+};
 
-//     modal.classList.remove('hidden');
-//   });
-
-//   window.addEventListener('mouseup', e => {
-//     if (!e.target.closest('.js-close-modal')) return;
-
-//     modal.classList.add('hidden');
-//   });
-// });
+modalController({
+  modal: '.modal1',
+  btnOpen: '.section__button1',
+  btnClose: '.modal__close',
+});
