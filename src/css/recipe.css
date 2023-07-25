@@ -36,9 +36,9 @@
   background-color: #f8f8f8;
 }
 
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
   display: none;
-} */
+}
 .modal-recipe.active {
   visibility: visible;
   opacity: 1;
