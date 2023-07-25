@@ -1,0 +1,2 @@
+function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"})}var scrollToTopButton=document.getElementById("scrollToTopButton");scrollToTopButton.style.display="none",window.addEventListener("scroll",(function(){window.scrollY>=50?scrollToTopButton.style.display="block":scrollToTopButton.style.display="none"})),scrollToTopButton.addEventListener("click",scrollToTop);
+//# sourceMappingURL=favorites-page.eb68bd11.js.map
