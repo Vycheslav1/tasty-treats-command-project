@@ -2,16 +2,20 @@
 }
 
 @media screen and (min-width: 768px) {
+  .modal-recipe {
+    width: 531px;
+    padding: 32px;
+  }
 }
-
 @media screen and (min-width: 1200px) {
 }
 
-.backdrop {
+.backdrop-recipes {
   width: 100%;
   height: 100%;
-  background-color: #0000001e;
+  background-color: #05050548;
   position: fixed;
+  overflow: auto;
   z-index: 2;
   top: 0;
   left: 0;
@@ -27,6 +31,7 @@
   overflow-y: auto;
 }
 .modal-recipe {
+  width: 335px;
   position: absolute;
   border-radius: 15px;
   max-width: 335px;
@@ -36,9 +41,9 @@
   background-color: #f8f8f8;
 }
 
-.backdrop.is-hidden {
+/* .backdrop.is-hidden {
   display: none;
-}
+} */
 .modal-recipe.active {
   visibility: visible;
   opacity: 1;
