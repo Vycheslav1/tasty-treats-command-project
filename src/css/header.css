@@ -1,6 +1,6 @@
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #DDDDDD;
+  background-color: #F8F8F8;
 }
 
 a {
@@ -144,13 +144,13 @@ ul {
   width: 18.8px;
   border-radius: 50%;
   /* винести в змінну */
-  background-color: #F3F3F3;
+  background-color: #F8F8F8;
   transition: 0.4s;
 }
 
 /* стилі при фокусі */
 .switch-input:focus+.switch-slider {
-  box-shadow: 0 0 1px gold;
+  box-shadow: 0 0 1px rgb(177, 177, 174);
 }
 
 /* стилі при виборі прапорця */
@@ -160,9 +160,9 @@ ul {
 }
 
 .switch-input:checked+.switch-slider::before {
-  transform: translateX(25px);
-  -webkit-transform: translateX(25px);
-  -ms-transform: translateX(25px);
+  transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
 }
 
 /* burger */
@@ -192,6 +192,190 @@ ul {
     width: 24px;
     height: 24px;
   }
+}
+
+/* внутри */
+@media screen and (min-width: 768px) {
+  .burger-close {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.mobile-menu {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-toggle {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  filter: grayscale(100%) brightness(1000%);
+}
+
+.mobile-menu .burger-link {
+  display: block;
+  text-decoration: none;
+}
+
+.burger-link {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.burger-favorites {
+  margin-left: -10px;
+}
+
+.burger-home {
+  margin-top: 200px;
+  padding-bottom: 16px;
+}
+
+.burger-mobile-close {
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.mobile-socials-header {
+  position: relative;
+  top: 200px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  margin-left: -15px;
+  gap: 14px;
+}
+
+.header-menu-container.is-open {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.header-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9BB537;
+  z-index: 999;
+  transform: translate(100%);
+  transition: transform .25s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding: 138px 46px 500px 50px;
+}
+
+/* burger-switch */
+@media screen and (max-width: 320px) {
+  .js-swither.left-bottom-align {
+    display: block;
+    /* Показываем switch для мобильного бургер-меню */
+  }
+}
+
+.left-bottom-align {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.burger-switch {
+  display: block;
+  padding-top: -25px;
+  position: relative;
+  width: 46px;
+  height: 20px;
+}
+
+.burger-switch-input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: 35px;
+}
+
+.burger-switch-input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: 35px;
+}
+
+/* слайдер */
+.burger-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 46px;
+  height: 20px;
+  border-radius: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* винести в змінну */
+  background-color: #CECDCD;
+  transition: 0.4s;
+}
+
+.burger-switch-slider::before {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  right: 0.6px;
+  left: 0.6px;
+  bottom: 0.6px;
+  height: 18.8px;
+  width: 18.8px;
+  border-radius: 50%;
+  /* винести в змінну */
+  background-color: #F8F8F8;
+  transition: 0.4s;
+}
+
+/* стилі при фокусі */
+.burger-switch-input:focus+.burger-switch-slider {
+  box-shadow: 0 0 1px rgb(177, 177, 174);
+}
+
+/* стилі при виборі прапорця */
+.burger-switch-input:checked+.burger-switch-slider {
+  /* винести в змінну */
+  background-color: #9BB537;
+}
+
+.burger-switch-input:checked+.burger-switch-slider::before {
+  transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
 }
 
 /* Стилі для білих іконок у темній темі */

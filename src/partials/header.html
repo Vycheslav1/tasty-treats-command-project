@@ -1,19 +1,44 @@
-<div class="container header-container dark-theme">
-  <nav class="header-nav">
-    <ul class="header-list">
-      <li><a href="#" class="header-link-home">Home</a></li>
-      <li><a href="#" class="header-link-favorites">Favorites</a></li>
-    </ul>
-    <a class="header-logo header-logo-tasty" href="#">tasty<span class="header-logo-treats">treats.</span></a>
-    <div class="header-svg">
-      <img class="header-shopping" src="./images/svg/shopping-cart.svg" alt="My Happy SVG" />
-      <img class="header-burger" src="./images/svg/align-justify.svg" alt="My Happy SVG-burger" />
-      <div class="js-swither">
-        <label class="switch">
-          <input type="checkbox" class="switch-input">
-          <span class="switch-slider"></span>
-        </label>
-      </div>
+<header class="header-page" id="header-anchor">
+  <div class="container header-container dark-theme header-mb-burger">
+    <div class="header-container-burger">
+      <nav class="header-nav">
+        <ul class="header-list">
+          <li><a href="#" class="header-link-home">Home</a></li>
+          <li><a href="#" class="header-link-favorites">Favorites</a></li>
+        </ul>
+        <a class="header-logo header-logo-tasty" href="#">tasty<span class="header-logo-treats">treats.</span></a>
+        <div class="header-svg">
+          <img class="header-shopping" src="./images/svg/shopping-cart.svg" alt="My Happy SVG" />
+          <img class="header-burger js-header-open-menu" aria-expanded="false" aria-controls="header-mobile-menu"
+            src="./images/svg/align-justify.svg" alt="My Happy SVG-burger" />
+          <div class="js-swither">
+            <label class="switch">
+              <input type="checkbox" class="switch-input">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+      </nav>
     </div>
-  </nav>
-</div>
+  </div>
+  <!-- js close modal -->
+  <div class="header-menu-container js-header-menu-container" id="header-mobile-menu">
+    <img class="menu-toggle js-header-close-menu burger-mobile-close" src="./images/svg/x.svg" width="28" height="28"
+      alt="My Happy SVG" />
+    <ul class="mobile-menu">
+      <li class="mobile-item">
+        <a href="#header-anchor" class="burger-link burger-home">Home</a>
+      </li>
+      <li class="mobile-item">
+        <a href="#" class="burger-link burger-favorites">Favorites</a>
+      </li>
+    </ul>
+    <div class="js-swither left-bottom-align">
+      <label class="burger-switch">
+        <input type="checkbox" class="burger-switch-input">
+        <span class="burger-switch-slider"></span>
+      </label>
+    </div>
+  </div>
+  <script src="./header-burger.js"></script>
+</header>
