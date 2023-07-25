@@ -18,20 +18,46 @@ let pageNumber;
 
 loadPage = 1;
 
+let region;
+
+let constituent;
+
+let period;
+
+let sort;
+
+let perPage;
 
 const recipes = document.querySelector(".nav-scroller");
 
-const gallery = document.querySelector(".section-elements .pictures-gallery");
+const gallery = document.querySelector(".photos .pictures-gallery");
+const things = document.querySelector(".photos");
+const allCategories=document.querySelector(".all-categories");
 
+const plugCover=document.querySelector(".plug");
 
-const fetchObjects = async () => {
-  console.log(url);
-  const response = await axios.get(url);
-  const results = await response;
-  return results;
-};
+const chapter=document.querySelector(".section-elements");
 
-function renderCardsList(results) {
+perPage=9;
+
+stop=perPage;
+
+period=0;
+
+region="";
+
+constituent="";
+
+sort="";
+//const fetchObjects = async () => {
+ // console.log(url);
+ // const response = await axios.get(url,{params:{}});
+//  const results = await response;
+//  return results;
+//};
+
+function renderCardsList(foods) {
+console.log(foods);
 
   let markup = ``;
  
@@ -39,7 +65,9 @@ function renderCardsList(results) {
    
 
     markup += `<li><div class="photo-card"><img class="picture"  src=${pictures[0].results[i].preview} alt=${pictures[0].results[i].tags[0]} loading="lazy" />
-  </div></li>`;
+ <!-- <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
+  <ul class="rating"><li class="recipe-rating">${pictures[0].results[i].rating}</li><li class="stars"></li><li class="recipe-button">
+  <button type="button" class="get-recipes">See recipe</button></li></ul>--></div></li>`;
   };//};
   gallery.innerHTML = markup;
 
@@ -48,7 +76,7 @@ function renderCardsList(results) {
   const container = document.getElementById('tui-pagination-container');
   
   const options = {
-    totalItems: results.data.totalPages,
+    totalItems: foods.totalPages,
     itemsPerPage: 9,
     visiblePages: 3,
     page: loadPage,
@@ -80,74 +108,60 @@ function renderCardsList(results) {
    
     loadPage = event.page;
 
-    const searchParams = new URLSearchParams({
-      category: "",
-      limit: 9,
-      page: loadPage
+      
 
+    if (loadPage * stop >= foods.totalPages) {
+      perPage = (foods.totalPages) % ((loadPage - 1) * stop);
 
-    });
     
 
-    if (loadPage * searchParams.get("limit") >= results.data.totalPages) {
-      pageNumber = (results.data.totalPages) % ((loadPage - 1) * searchParams.get("limit"));
-
-      searchParams.set("limit", pageNumber);
-
     }
-    if (loadPage > Number.parseInt((results.data.totalPages) % stop) + 1) {
-      return;
+    if (loadPage > Number.parseInt((foods.totalPages) % stop) + 1) {
+
+       return;
     }
 
-    url = `${base_url}?${searchParams}`;
-    fetchObjects().then(results => {
+   
+    axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
       
       pictures.splice(0,1);
-      alert(pictures.length);
-      pictures.push(results.data);
       
-      renderCardsList(results);
+      pictures.push(response.data);
+      
+      renderCardsList(response.data);
 
     });
 
   });
  
-
+  perPage=stop;
 
 }
 
 const base_url = "https://tasty-treats-backend.p.goit.global/api/recipes?categories";
 
-const searchParams = new URLSearchParams({
-  category: "",
-  page: 1,
-  limit: 9
 
-});
-stop = searchParams.get("limit");
 
-url = `${base_url}?${searchParams}`;
-
-fetchObjects().then(results => {
+axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
   
-  if (results.data.totalPages === 0) {
+  if (response.data.totalPages===0) {
   
-    gallery.innerHTML = ``;
-
-    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-
-
+    galllery.innerHTML = ``;
+   // things.innerHTML=``;
+ //  gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+//  /<p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+//plugCover.classList.toggle(".is-hidden");
+ 
     return;
   } else {
 
-    pictures.push(results.data);
+    pictures.push(response.data);
 
    
 
   }
 
-  renderCardsList(results);
+  renderCardsList(response.data);
 
 
 })
@@ -159,7 +173,6 @@ fetchObjects().then(results => {
   });
 
 
-axios.get(url).then((response) => console.log(response));
 
 const category_url = "https://tasty-treats-backend.p.goit.global/api/categories";
 
@@ -170,47 +183,42 @@ axios.get(category_url).then(response => {
   ).join("");
   recipes.innerHTML = recipes_markup;
   
+  
 
   recipes.addEventListener("click", (evt) => {
-    
+ 
     for (const item of response.data) {
       if (item.name === evt.target.innerText) {
         
-
-        const searchParams = new URLSearchParams({
-          category: "",
-          page: 1,
-          limit: 9,
-        });
-        
-        url = `${base_url}?${searchParams}`;
+       sort=evt.target.innerText;
+     
+       loadPage=1;
+    
 
         pictures.splice(0, 1);
       
-        fetchObjects().then(results => {
-
-          searchParams.set("limit", results.data.totalPages);
-          fetchObjects().then(results => console.log(results.data));
-        
-              if(results.data.totalPages===0)
+        axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
+      console.log(response);
+       
+       
+              if(response.data.totalPages===0)
               {
          
 
                gallery.innerHTML=``;
 
-               gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-              <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+           //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+          //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
 
 
                return;
                }else{
-          
-          renderCardsList(results);
+                pictures.push(response.data);
 
+          renderCardsList(response.data);
          
+        
              }
-
-             
 
 
         })
@@ -228,4 +236,40 @@ axios.get(category_url).then(response => {
   });
 });
 
+allCategories.addEventListener("click",()=>{
 
+  loadPage=1;
+
+  sort="";
+  pictures.splice(0, 1);
+  axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
+  
+    if (response.data.totalPages === 0) {
+    
+      gallery.innerHTML = ``;
+  
+  //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+  //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+  
+  
+      return;
+    } else {
+  
+      pictures.push(response.data);
+  
+     
+  
+    }
+  
+    renderCardsList(response.data);
+  
+  
+  })
+    .catch(error => {
+      console.log(error);
+  
+        
+  
+    });
+
+});
