@@ -29,6 +29,8 @@ function openModalRecipe() {
 
 function closeModalRecipe() {
   if (modal) {
+    const recipeVideoIframe = document.querySelector('.recipe-iframe-video');
+    recipeVideoIframe.src = '';
     modal.classList.add('is-hidden');
     document.removeEventListener('keydown', onEscKeyPress);
     backdrop.removeEventListener('click', closeModalRecipe);
@@ -47,6 +49,26 @@ backdrop.addEventListener('click', event => {
     closeModalRecipe();
   }
 });
+// // Слухач на пул рецептів для визначення кліку на кнопку картки
+// const recipesContainer = document.querySelector('.image-container');
+
+// recipesContainer.addEventListener('click', async event => {
+//   const seeRecipeBtn = event.target.closest(`recipe-btn-open`);
+//   if (!seeRecipeBtn) return;
+
+//   const recipeId = seeRecipeBtn.dataset.id;
+//   console.log(recipeId);
+//   try {
+//     const fetchedRecipe = await fetchRecipe(recipeId);
+//     if (fetchedRecipe) {
+//       recipe = fetchedRecipe;
+//       updateFavoriteButtonStatus(recipe);
+//       openModal();
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 async function fetchRecipe(recipeId) {
   console.log(recipeId);
@@ -99,7 +121,7 @@ function displayRecipeTimeCooking(recipe) {
 }
 
 function displayRecipeRating(recipe) {
-  const recipeRatingEl = document.querySelector('.rating-value');
+  const recipeRatingEl = document.querySelector('.rating-recipe-value');
   recipeRatingEl.textContent = recipe.rating;
 }
 
@@ -158,7 +180,7 @@ function removeFromFavorites(recipe) {
 }
 
 // Чіпляємося до кнопки "Add to favorite"
-const addToFavoriteButton = document.querySelector('.btn-add-favorite');
+const addToFavoriteButton = document.querySelector('.btn-recipe-add-favorite');
 
 // Функція перевірки перебування рецепта в localStorage
 function isRecipeInFavorites(recipe) {
@@ -190,7 +212,7 @@ function addToFavorites(recipe) {
 
 //  Слухач події для кнопки "Add to favorite", який для додавання/видалення обраного рецепту з масиву localStorage
 addToFavoriteButton.addEventListener('click', () => {
-  const recipe = fetchRecipe(recipeId)
+  const recipe = fetchRecipe(recipeId);
   const isFavorite = isRecipeInFavorites(recipe);
   if (isFavorite) {
     removeFromFavorites(recipe);
