@@ -5,4 +5,7 @@
 @import url('./hero-favorites.css');
 @import url('./recipe.css');
 @import url('./popular_recipes.css');
-@import url('./extrafilters.css'); 
+@import url('./extrafilters.css');
+@import url('./home_categories.css');
+@import url('./scroll-up.css');
+/*@import url('./create_order.css');*/
