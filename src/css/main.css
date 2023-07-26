@@ -10,10 +10,13 @@
 
 body {
   font-family: 'Inter';
-  color: #050505;
+  color: var(--primaty-black-color);
 }
 * {
   box-sizing: border-box;
+}
+a{
+  text-decoration: none;
 }
 
 ul {
