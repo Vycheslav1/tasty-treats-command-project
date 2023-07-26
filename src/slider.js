@@ -8,15 +8,14 @@ const tastyTreats = axios.create({
     baseURL:"https://tasty-treats-backend.p.goit.global/api",
 });
 
-function getAllEvents(){
-    return tastyTreats.get("/events");
+async function getAllEvents(){
+  const response = await tastyTreats.get("/events"); 
+    return response;
 }
 
 const refs={
     images: document.querySelector('.images'),
-    btnOrder: document.querySelector('.btn-order'),
-    backdrop: document.querySelector('.backdrop'),
-    closeBtn: document.querySelector('.close-btn-icon'),
+    btnOrder: document.querySelector('.btn-order'),  
 }
 
 
