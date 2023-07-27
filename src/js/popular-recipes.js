@@ -1,13 +1,21 @@
 
 import axios from 'axios';
+
 const popularRecipes = document.querySelector('.popular-recipes');
+
 async function fetchArticles() {
   const url = `https://tasty-treats-backend.p.goit.global/api/recipes/popular`;
+
   try {
     const data = await axios.get(url);
+
     const popRecipes = data.data;
+
     // return popRecipes;
+
     let markup = '';
+
+
     popRecipes.forEach(recipe => {
       markup += `<div class="article-poprecipes">
         <img
@@ -20,14 +28,19 @@ async function fetchArticles() {
         </div>
       </div>`;
     });
+
     popularRecipes.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
     console.log(error.message);
   }
 }
+
 fetchArticles();
+
 // function loadPopularRecipes(popRecipes) {
 //   let markup = '';
+
+
 //   popRecipes.forEach(recipe => {
 //     markup += `<div class="article">
 //     <img
@@ -40,6 +53,10 @@ fetchArticles();
 //     </div>
 //   </div>`;
 //   });
+
+=======
+
 //   popularRecipes.insertAdjacentHTML('beforeend', markup);
 // }
+
 // loadPopularRecipes(popRecipes);
