@@ -1,7 +1,7 @@
 :root {
   /* White Theme */
   --primary-white-color: #ffffff;
-  --primaty-black-color: #050505;
+  --primary-black-color: #050505;
   --text-white-color: #f8f8f8;
   --accent-color: #9bb537;
   /* Dark Theme */
@@ -10,12 +10,12 @@
 
 body {
   font-family: 'Inter';
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
 }
 * {
   box-sizing: border-box;
 }
-a{
+a {
   text-decoration: none;
 }
 
