@@ -1,4 +1,4 @@
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 
 const ratingInputs = document.querySelectorAll(".star-rating__input");
 const ratingValue = document.querySelector(".rating-value");
@@ -22,31 +22,31 @@ ratingForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   if (rating === 0) {
-    // Notiflix.Notify.warning('Please select a rating.');
-    alert('Please select a rating.');
+    Notiflix.Notify.warning('Please select a rating.');
+    // alert('Please select a rating.');
     return;
   }
 
   const email = emailInput.value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    // Notiflix.Notify.warning('Please enter a valid email address.');
-    alert('Please enter a valid email address.');
+    Notiflix.Notify.warning('Please enter a valid email address.');
+    // alert('Please enter a valid email address.');
     return;
   }
 
-  sendRatingToBackend(rating, email, id);
+  sendRatingToBackend(rating, email);
 });
 
 const base_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
-function sendRatingToBackend(rating, email, id) {
+function sendRatingToBackend(rating, email) {
   const dataToSend = {
     "rate": Number(rating),
     "email": email
   };
 
-  fetch(`${base_URL}/recipes/${id}/rating`, {
+  fetch(`${base_URL}/recipes/.../rating`, { //добавити id
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -55,16 +55,18 @@ function sendRatingToBackend(rating, email, id) {
   })
   .then((response) => {
     if (response.ok) {
-      // Notiflix.Notify.success('Rating added successfully!');
-      // modalBackdrop.classList.add('is-hidden')
+      Notiflix.Notify.success('Rating added successfully!');
+      modalBackdrop.classList.add('is-hidden')
       
       emailInput.value = "";
       ratingValue.textContent = `0.0`;
+      const starInputs = document.querySelectorAll(".star-rating__input");
+      starInputs.forEach((input) => (input.checked = false));
 
-      alert('Rating added successfully!');
+      // alert('Rating added successfully!');
     } else {
-      // Notiflix.Notify.failure('Error adding rating. Please try again.');
-      alert('Error adding rating. Please try again.');
+      Notiflix.Notify.failure('Error adding rating. Please try again.');
+      // alert('Error adding rating. Please try again.');
     }
   })
   .catch((error) => {
