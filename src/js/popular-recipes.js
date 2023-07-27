@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const popularRecipes = document.querySelector('.popular-recipes');
@@ -14,7 +13,6 @@ async function fetchArticles() {
     // return popRecipes;
 
     let markup = '';
-
 
     popRecipes.forEach(recipe => {
       markup += `<div class="article-poprecipes">
@@ -40,7 +38,6 @@ fetchArticles();
 // function loadPopularRecipes(popRecipes) {
 //   let markup = '';
 
-
 //   popRecipes.forEach(recipe => {
 //     markup += `<div class="article">
 //     <img
@@ -53,8 +50,6 @@ fetchArticles();
 //     </div>
 //   </div>`;
 //   });
-
-=======
 
 //   popularRecipes.insertAdjacentHTML('beforeend', markup);
 // }
