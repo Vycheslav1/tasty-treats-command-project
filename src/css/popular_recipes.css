@@ -1,3 +1,4 @@
+
 @media screen and (min-width: 375px) {
   .popular-recipes {
     width: 332px;
@@ -112,14 +113,13 @@
     line-height: 18px;
     margin-bottom: 32px;
   }
-
   .article-poprecipes-title {
     width: 120px;
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-}
+
 
 @media screen and (min-width: 1280px) {
   .popular-recipes-title {
@@ -145,4 +145,5 @@
   .article-poprecipes-text {
     width: 155px;
   }
+
 }
