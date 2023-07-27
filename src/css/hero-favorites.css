@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: center; */
-    margin-top: 42px;
+    /* margin-top: 42px; */
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1199px),
@@ -77,7 +77,7 @@
     /* align-items: center;
     justify-content: center;  */
     background-position: center;
-    margin-top: 42px;
+    /* margin-top: 42px; */
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
@@ -130,6 +130,3 @@
   line-height: 22px;
 }
 
-
-
-  

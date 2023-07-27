@@ -59,12 +59,10 @@ sort = '';
 //};
 
 function renderCardsList(foods) {
-<<<<<<< Updated upstream
-  //console.log(foods);
-  //localStorage.setItem("results",foods);
-=======
+
   console.log(foods);
->>>>>>> Stashed changes
+  localStorage.setItem("results",foods);
+
 
   let markup = ``;
 
@@ -109,45 +107,33 @@ function renderCardsList(foods) {
     }
   });
 
-  //gallery.addEventListener("load",()=>{
+  gallery.addEventListener("load",()=>{
 
-  //const ratings=document.querySelectorAll(".rating");
-  // console.log("hello");
-  // if (ratings.length>0){
-  //   initRatings();
-  // }
+  const ratings=document.querySelectorAll(".rating");
+  console.log("hello");
+  if (ratings.length>0){
+    initRatings();
+  }
 
-  //});
-  //}
-  //rating.innerHTML=starMarkup;
-  //console.log(rating);
-  //const tags=document.createElement(markup);
-  // gallery.append(tags);
+  });
+  }
+  rating.innerHTML=starMarkup;
+  console.log(rating);
+  const tags=document.createElement(markup);
+  gallery.append(tags);
   gallery.innerHTML = markup;
-  // console.log(tags);
-  //  const ratings=document.querySelectorAll(".rating");
-  // console.log(ratings);
-  // if (ratings.length>0){
-  //   initRatings();
-  // }
+  console.log(tags);
+   const ratings=document.querySelectorAll(".rating");
+  console.log(ratings);
+  if (ratings.length>0){
+    initRatings();
+  }
   gallery.insertAdjacentHTML(
     'beforeend',
     `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
   );
 
-=======
- <!-- <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
-  <ul class="rating"><li class="recipe-rating">${pictures[0].results[i].rating}</li><li class="stars"></li><li class="recipe-button">
-  <button type="button" class="get-recipes">See recipe</button></li></ul>--></div></li>`;
-  } //};
-  gallery.innerHTML = markup;
 
-  gallery.insertAdjacentHTML(
-    'beforeend',
-    `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
-  );
-
->>>>>>> Stashed changes
   const container = document.getElementById('tui-pagination-container');
 
   const options = {
@@ -203,7 +189,7 @@ function renderCardsList(foods) {
   });
 
   perPage = stop;
-}
+
 
 const base_url =
   'https://tasty-treats-backend.p.goit.global/api/recipes?categories';
@@ -259,13 +245,9 @@ axios.get(category_url).then(response => {
             if (response.data.totalPages === 0) {
               gallery.innerHTML = ``;
 
-<<<<<<< Updated upstream
+
               //   gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
               //  <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-=======
-              //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-              //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
->>>>>>> Stashed changes
 
               return;
             } else {
@@ -296,11 +278,11 @@ allCategories.addEventListener('click', () => {
         gallery.innerHTML = ``;
 
         //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-<<<<<<< Updated upstream
+
         // <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-=======
+
         //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
->>>>>>> Stashed changes
+
 
         return;
       } else {
