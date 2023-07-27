@@ -59,13 +59,18 @@ sort = '';
 //};
 
 function renderCardsList(foods) {
+<<<<<<< Updated upstream
   //console.log(foods);
   //localStorage.setItem("results",foods);
+=======
+  console.log(foods);
+>>>>>>> Stashed changes
 
   let markup = ``;
 
   for (let i = 0; i < pictures[0].results.length; i += 1) {
     markup += `<li><div class="photo-card"><img class="picture"  src=${pictures[0].results[i].preview} alt=${pictures[0].results[i].tags[0]} loading="lazy" />
+<<<<<<< Updated upstream
  <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
   <div class="rating" >
   <div class="rating_body">
@@ -130,6 +135,19 @@ function renderCardsList(foods) {
     `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
   );
 
+=======
+ <!-- <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
+  <ul class="rating"><li class="recipe-rating">${pictures[0].results[i].rating}</li><li class="stars"></li><li class="recipe-button">
+  <button type="button" class="get-recipes">See recipe</button></li></ul>--></div></li>`;
+  } //};
+  gallery.innerHTML = markup;
+
+  gallery.insertAdjacentHTML(
+    'beforeend',
+    `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
+  );
+
+>>>>>>> Stashed changes
   const container = document.getElementById('tui-pagination-container');
 
   const options = {
@@ -241,8 +259,13 @@ axios.get(category_url).then(response => {
             if (response.data.totalPages === 0) {
               gallery.innerHTML = ``;
 
+<<<<<<< Updated upstream
               //   gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
               //  <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+=======
+              //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+              //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+>>>>>>> Stashed changes
 
               return;
             } else {
@@ -273,7 +296,11 @@ allCategories.addEventListener('click', () => {
         gallery.innerHTML = ``;
 
         //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+<<<<<<< Updated upstream
         // <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+=======
+        //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+>>>>>>> Stashed changes
 
         return;
       } else {
