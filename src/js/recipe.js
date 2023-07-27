@@ -70,24 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(error);
     }
   });
-  if (popularList) {
-    popularList.addEventListener('click', async event => {
-      const listItem = event.target.closest('.popular-list-item');
-      if (!listItem) return;
 
-      const recipeId = listItem.dataset.id;
-      try {
-        const fetchedRecipe = await fetchRecipe(recipeId);
-        if (fetchedRecipe) {
-          recipe = fetchedRecipe;
-          updateFavoriteButtonStatus(recipe);
-          openModal();
-        }
-      } catch (error) {
-        console.log(error);
+  popularList.addEventListener('click', async event => {
+    const listItem = event.target.closest('.popular-list-item');
+    if (!listItem) return;
+
+    const recipeId = listItem.dataset.id;
+    try {
+      const fetchedRecipe = await fetchRecipe(recipeId);
+      if (fetchedRecipe) {
+        recipe = fetchedRecipe;
+        updateFavoriteButtonStatus(recipe);
+        openModalRecipe();
       }
-    });
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  });
 });
 
 async function fetchRecipe(recipeId) {
@@ -234,9 +233,6 @@ function addToFavorites(recipe) {
 
 //  Слухач події для кнопки "Add to favorite", який для додавання/видалення обраного рецепту з масиву localStorage
 addToFavoriteButton.addEventListener('click', () => {
-  const heartIcon = document.querySelector(
-    `.heart-btn[data-ids="${recipe._id}"]`
-  );
   const isFavorite = isRecipeInFavorites(recipe);
   if (isFavorite) {
     removeFromFavorites(recipe);
