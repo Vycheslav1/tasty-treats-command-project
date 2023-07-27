@@ -1,6 +1,8 @@
+
 /* LIGHT */
 
 /* :root {
+
     --var-background: #FFFFFF;
     --var-text: #000;
     --accent-background: #383838;
@@ -10,11 +12,16 @@
     --var-grey: rgba(5, 5, 5, 0.50);
     --var-grey-menu: rgba(5, 5, 5, 0.30);
 
+
 } */
 
 /* DARK */
 
 /* :root[data-theme='dark'] {
+
+
+
+
     --var-background: #1E1E1E;
     --var-text: #FFF;
     --var-dark: #FFFFFF;
