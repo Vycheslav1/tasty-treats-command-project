@@ -4,29 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-    />
-    <link rel="stylesheet" href="./css/home_categories.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+  />
+  <link rel="stylesheet" href="./css/home_categories.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />  
+  <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="stylesheet" href="./css/styles.css" />
+   
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script type="module" src="./index.js"></script>
+    
   </head>
-
+  
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
+        <!-- ❗️❗️❗️ Add partials like so for every page -->
     <include src="./partials/header.html"></include>
+    <main>
     <include src="./partials/hero.html"></include>
     <include src="./partials/extrafilters.html"></include>
     <include src="./partials/categories.html"></include>
@@ -35,7 +31,7 @@
     <include src="./partials/recipe.html"></include>
     <include src="./partials/add_rating.html"></include>
     <include src="./partials/create_order.html"></include>
-    <script type="module" src="js/home_categories-api.js"></script>
-    <script type="module" src="/src/js/popular-recipes.js"></script>
+    </main>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

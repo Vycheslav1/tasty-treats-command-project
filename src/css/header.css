@@ -1,23 +1,10 @@
-/* Общие стили */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F8F8F8;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
 /* Стили для навигационной панели */
 .header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 25px;
+  padding-bottom: 94px;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,7 +30,6 @@ ul {
     align-items: center;
     gap: 16px;
     display: flex;
-    /* Показываем список на ширине экрана 768px и больше */
   }
 }
 
@@ -67,34 +53,37 @@ ul {
 /* Стили для ссылок */
 .header-link-home,
 .header-link-favorites {
-  font-size: 12px;
-  line-height: 14.52px;
+  font-size: 14px;
+  line-height: 14px;
   font-weight: 400;
 }
 
-.header-link-home {
-  color: #9BB537;
+.header-link-active {
+  color: var(--accent-color);
 }
 
 .header-link-favorites {
-  color: #050505;
+  color: var(--primaty-black-color);
 }
 
 /* Стили для логотипа "Tasty" */
 .header-logo-tasty {
-  /* винести в root */
-  color: #9BB537;
+  color: var(--accent-color);
   text-align: center;
   letter-spacing: -4%;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 18px;
 }
 
 /* Стили для логотипа "Treats" */
 .header-logo-treats {
-  /* винести в root */
-  color: #050505;
+  color: var(--primaty-black-color);
+  text-align: center;
+  letter-spacing: -4%;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
 }
 
 /* Стили для переключателя */
@@ -132,13 +121,13 @@ ul {
   width: 46px;
   height: 20px;
   border-radius: 60px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* винести в змінну */
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.40);
   background-color: #CECDCD;
   transition: 0.4s;
 }
 
-.switch-slider::before {
+.switch-slider::before,
+.burger-switch-slider::before {
   content: "";
   position: absolute;
   cursor: pointer;
@@ -148,8 +137,8 @@ ul {
   height: 18.8px;
   width: 18.8px;
   border-radius: 50%;
-  /* винести в змінну */
-  background-color: #F8F8F8;
+  background-color: rgb(243, 243, 243);
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.40);
   transition: 0.4s;
 }
 
@@ -160,8 +149,7 @@ ul {
 
 /* Стили при включенном переключателе */
 .switch-input:checked+.switch-slider {
-  /* винести в змінну */
-  background-color: #9BB537;
+  background-color: var(--accent-color);
 }
 
 .switch-input:checked+.switch-slider::before {
@@ -180,7 +168,7 @@ ul {
 }
 
 .header-burger,
-.header-svg img,
+.header-svg header-img,
 .header-logo-treats,
 .header-link-favorites {
   filter: invert(0%);
@@ -200,7 +188,7 @@ ul {
 @media screen and (max-width: 768px) {
 
   .header-burger,
-  .header-svg img,
+  .header-svg header-img,
   .header-logo-treats,
   .header-link-favorites {
     filter: invert(0%);
@@ -302,7 +290,7 @@ ul {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #9BB537;
+  background-color: var(--accent-color);
   z-index: 999;
   transform: translate(100%);
   transition: transform .25s ease-in-out;
@@ -364,21 +352,6 @@ ul {
   transition: 0.4s;
 }
 
-.burger-switch-slider::before {
-  content: "";
-  position: absolute;
-  cursor: pointer;
-  right: 0.6px;
-  left: 0.6px;
-  bottom: 0.6px;
-  height: 18.8px;
-  width: 18.8px;
-  border-radius: 50%;
-  /* винести в змінну */
-  background-color: #F8F8F8;
-  transition: 0.4s;
-}
-
 /* Стили при фокусе */
 .burger-switch-input:focus+.burger-switch-slider {
   box-shadow: 0 0 1px rgb(177, 177, 174);
@@ -386,8 +359,7 @@ ul {
 
 /* Стили при включенном переключателе бургера */
 .burger-switch-input:checked+.burger-switch-slider {
-  /* винести в змінну */
-  background-color: #9BB537;
+  background-color: var(--accent-color);
 }
 
 .burger-switch-input:checked+.burger-switch-slider::before {
@@ -398,7 +370,7 @@ ul {
 
 /* Стили для белых иконок в темной теме */
 .dark-theme .header-burger.white,
-.dark-theme .header-svg img.white,
+.dark-theme .header-svg header-img.white,
 .dark-theme .header-logo-treats.white,
 .dark-theme .header-link-favorites.white {
   filter: invert(1);
@@ -420,6 +392,7 @@ ul {
   padding: 30px;
   overflow-y: auto;
   display: none;
+  z-index: 9999;
 }
 
 @media screen and (min-width: 768px) {
@@ -443,7 +416,7 @@ ul {
 }
 
 .text-order-now {
-  color: #050505;
+  color: var(--primaty-black-color);
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -451,7 +424,6 @@ ul {
   line-height: 22px;
   text-transform: uppercase;
   padding-top: 30px;
-  padding-left: 40px;
 }
 
 .modal__title {
@@ -469,8 +441,8 @@ ul {
   cursor: pointer;
   font-size: 22px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 16px;
+  right: 16px;
   outline: 1px solid transparent;
   outline-offset: 3px;
   transition: outline-color .15s ease-in-out;
@@ -482,8 +454,6 @@ ul {
   height: 30px;
   filter: invert(100%) !important;
 }
-
-
 
 /* Стили для формы */
 form {
@@ -532,8 +502,8 @@ form {
   align-items: center;
   flex-shrink: 0;
   border-radius: 15px;
-  background-color: #9BB537;
-  color: #F8F8F8;
+  background-color: var(--accent-color);
+  color: var(--text-white-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -547,6 +517,6 @@ form {
 
 .header-send:hover,
 .header-send:focus {
-  color: #050505;
+  color: var(--primaty-black-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
