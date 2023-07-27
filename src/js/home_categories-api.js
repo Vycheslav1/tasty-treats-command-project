@@ -12,6 +12,8 @@ let searchParam;
 
 let pictures = [];
 
+let favorites=[];
+
 let loadPage;
 
 let pageNumber;
@@ -57,20 +59,80 @@ sort="";
 //};
 
 function renderCardsList(foods) {
-console.log(foods);
+//console.log(foods);
+//localStorage.setItem("results",foods);
+
 
   let markup = ``;
  
   for (let i = 0; i < pictures[0].results.length; i += 1) {
    
-
     markup += `<li><div class="photo-card"><img class="picture"  src=${pictures[0].results[i].preview} alt=${pictures[0].results[i].tags[0]} loading="lazy" />
- <!-- <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
-  <ul class="rating"><li class="recipe-rating">${pictures[0].results[i].rating}</li><li class="stars"></li><li class="recipe-button">
-  <button type="button" class="get-recipes">See recipe</button></li></ul>--></div></li>`;
+ <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p>
+  <div class="rating" >
+  <div class="rating_body">
+  <div class="rating_active"></div>
+      <div class="rating_items"></div>
+  </div>  
+  <div class="rating_value" >${pictures[0].results[i].rating}</div>  
+</div>
+<button type="button" class="get-recipes">See recipe</button></div><label class="label-check">
+<input class="modal-check" type="checkbox" id="check-item" />
+<svg class="checkmark">
+  <use href="./css/images/sprite/icons.svg#icon-heart"></use>
+</svg>
+</label></li>`;
   };//};
-  gallery.innerHTML = markup;
+  
 
+   const check=document.querySelector(".photos .pictures-gallery");
+ // const rating=document.querySelectorAll(".stars")
+ //for(const child in check.childNodes)
+ //{
+ check.addEventListener("click",(evt)=>{
+  const modal=document.querySelectorAll(".modal-check");
+ 
+  for(let i=0;i<pictures[0].results.length;i+=1)
+  {
+    if(modal[i].checked)
+    {
+  localStorage.setItem("favorites",pictures[i]);
+    }else{
+      for(let j=0;j<favorites.length;j=+1)
+      {
+        if(favorites[j]===pictures[i])
+        {
+          favorites.splice(j,1);
+
+          localStorage.setItem("favorites",favorites);
+        }
+      }
+      
+    }
+  }
+ });
+
+ //gallery.addEventListener("load",()=>{
+
+ //const ratings=document.querySelectorAll(".rating");
+ // console.log("hello");
+ // if (ratings.length>0){
+ //   initRatings();
+ // }
+
+ //});
+ //}
+//rating.innerHTML=starMarkup;
+//console.log(rating);
+//const tags=document.createElement(markup);
+ // gallery.append(tags);
+  gallery.innerHTML=markup;
+ // console.log(tags);
+//  const ratings=document.querySelectorAll(".rating");
+ // console.log(ratings);
+ // if (ratings.length>0){
+ //   initRatings();
+ // }
   gallery.insertAdjacentHTML("beforeend", `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`);
  
   const container = document.getElementById('tui-pagination-container');
@@ -272,4 +334,33 @@ allCategories.addEventListener("click",()=>{
   
     });
 
-});
+})
+
+
+
+
+
+function initRatings(){
+  let ratingActive, ratingValue;
+  for (let index=0; index<ratings.length; index++){
+      const rating=ratings[index];
+          initRating(rating);
+  }
+
+  function initRating(rating){
+      initRatingVars(rating);
+      setRatingActiveWidth();
+  }
+
+  function initRatingVars(rating){
+      ratingActive=rating.querySelectorAll('.rating_active')[0];
+      ratingValue=rating.querySelectorAll('.rating_value')[0];
+  }
+
+
+  function setRatingActiveWidth(index=ratingValue.innerHTML){        
+      const ratingActiveWidth = index/0.05;
+      ratingActive.style.width=`${ratingActiveWidth}%`;
+  }
+}
+

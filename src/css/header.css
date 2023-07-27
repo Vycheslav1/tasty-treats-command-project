@@ -1,23 +1,10 @@
-/* Общие стили */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F8F8F8;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
 /* Стили для навигационной панели */
 .header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 25px;
+  padding-bottom:94px ;
 }
 
 @media screen and (min-width: 768px) {
@@ -73,17 +60,16 @@ ul {
 }
 
 .header-link-home {
-  color: #9BB537;
+  color: var(--accent-color);
 }
 
 .header-link-favorites {
-  color: #050505;
+  color: var(--primaty-black-color);
 }
 
 /* Стили для логотипа "Tasty" */
 .header-logo-tasty {
-  /* винести в root */
-  color: #9BB537;
+  color: var(--accent-color);
   text-align: center;
   letter-spacing: -4%;
   font-size: 16px;
@@ -93,8 +79,7 @@ ul {
 
 /* Стили для логотипа "Treats" */
 .header-logo-treats {
-  /* винести в root */
-  color: #050505;
+  color: var(--primaty-black-color);
 }
 
 /* Стили для переключателя */
@@ -148,8 +133,7 @@ ul {
   height: 18.8px;
   width: 18.8px;
   border-radius: 50%;
-  /* винести в змінну */
-  background-color: #F8F8F8;
+  background-color: rgb(243, 243, 243);
   transition: 0.4s;
 }
 
@@ -160,8 +144,7 @@ ul {
 
 /* Стили при включенном переключателе */
 .switch-input:checked+.switch-slider {
-  /* винести в змінну */
-  background-color: #9BB537;
+  background-color: var(--accent-color);
 }
 
 .switch-input:checked+.switch-slider::before {
@@ -302,7 +285,7 @@ ul {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #9BB537;
+  background-color: var( --accent-color);
   z-index: 999;
   transform: translate(100%);
   transition: transform .25s ease-in-out;
@@ -374,8 +357,7 @@ ul {
   height: 18.8px;
   width: 18.8px;
   border-radius: 50%;
-  /* винести в змінну */
-  background-color: #F8F8F8;
+  background-color: var(--text-white-color);
   transition: 0.4s;
 }
 
@@ -386,8 +368,7 @@ ul {
 
 /* Стили при включенном переключателе бургера */
 .burger-switch-input:checked+.burger-switch-slider {
-  /* винести в змінну */
-  background-color: #9BB537;
+  background-color: var(--accent-color);
 }
 
 .burger-switch-input:checked+.burger-switch-slider::before {
@@ -443,7 +424,7 @@ ul {
 }
 
 .text-order-now {
-  color: #050505;
+  color: var(--primaty-black-color);
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -532,8 +513,8 @@ form {
   align-items: center;
   flex-shrink: 0;
   border-radius: 15px;
-  background-color: #9BB537;
-  color: #F8F8F8;
+  background-color:var( --accent-color);
+  color: var(--text-white-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -547,6 +528,6 @@ form {
 
 .header-send:hover,
 .header-send:focus {
-  color: #050505;
+  color: var(--primaty-black-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
