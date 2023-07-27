@@ -175,13 +175,14 @@ async function handleSearchInput() {
         if (!resipes.tags.includes(keyWord)) {
           return;
         }
-        console.log(resipes);
+        // console.log(generateMarkup(resipes));
+        // console.log(resipes);
         const { _id, preview, title, description, rating } = resipes;
 
         allCategoriesGallery.innerHTML = '';
         allCategoriesGallery.insertAdjacentHTML(
           'beforeend',
-          generateMarkup(resipes)
+          generateMarkup(resipes).join('')
         );
       });
     });
@@ -190,7 +191,7 @@ async function handleSearchInput() {
 
 function generateMarkup(res) {
   const resipe = [];
-  for (let i = 0; i < res.tags; i++) {
+  for (let i = 0; i < res.length; i++) {
     resipe.push(`
       <li class="cards__item items-set" data-id="${_id}">
         <img src="${preview}" alt="${title}" class="cards__img" />
