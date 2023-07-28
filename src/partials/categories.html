@@ -1,16 +1,20 @@
 <section class="home-categories">
-    <div class="container">
-       
-    <ul class="section-elements">
-<li><button type="button" class="all-categories">All categories</button></li></ul>
-    <ul class="photos"><li>
-<div class="nav-scroller">
-        
-      </div>
-</li>
- <li ><ul class="pictures-gallery"></ul>
-    
+
+  <div class="tupar"></div>
+  <ul class="photos">
+    <li class="eside bar">
+      <ul class="section-elements">
+        <li>
+          <button type="button" class="all-categories">All categories</button>
+        </li>
+      </ul>
+      <div class="nav-scroller"></div>
+      <include src="./partials/popular_recipes.html"></include>
     </li>
- </ul>
- 
+    <li>
+      <include src="./partials/extrafilters.html"></include>
+      <ul class="pictures-gallery"></ul>
+    </li>
+  </ul>
 </section>
+

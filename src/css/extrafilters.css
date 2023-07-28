@@ -20,7 +20,9 @@ svg {
 }
 
 .extra-filters-section {
-  margin-top: 40px;
+
+  /* margin-top: 40px; */
+
   text-align: center;
 }
 
@@ -200,7 +202,7 @@ option:is(:hover, :focus) {
 
 @media screen and (min-width: 768px) {
   .extra-filters-section {
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
 
   .extra-filters-form {
@@ -260,7 +262,7 @@ option:is(:hover, :focus) {
 
 @media screen and (min-width: 1200px) {
   .extra-filters-section {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     /* width: 780px; */
   }
 

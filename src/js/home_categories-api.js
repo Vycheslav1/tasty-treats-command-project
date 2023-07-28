@@ -14,7 +14,7 @@ let searchParam;
 
 let pictures = [];
 
-let favorites=[];
+let favorites = [];
 
 let loadPage;
 
@@ -32,44 +32,47 @@ let sort;
 
 let perPage;
 
-const recipes = document.querySelector(".nav-scroller");
+const recipes = document.querySelector('.nav-scroller');
+
 
 const gallery = document.querySelector(".photos .pictures-gallery");
 //const things = document.querySelector(".photos");
 const allCategories=document.querySelector(".all-categories");
 
-const plugCover=document.querySelector(".plug");
 
-const chapter=document.querySelector(".section-elements");
+const plugCover = document.querySelector('.plug');
 
-perPage=9;
+const chapter = document.querySelector('.section-elements');
 
-stop=perPage;
+perPage = 9;
 
-period=0;
+stop = perPage;
 
-region="";
+period = 0;
 
-constituent="";
+region = '';
 
-sort="";
+constituent = '';
+
+sort = '';
 //const fetchObjects = async () => {
- // console.log(url);
- // const response = await axios.get(url,{params:{}});
+// console.log(url);
+// const response = await axios.get(url,{params:{}});
 //  const results = await response;
 //  return results;
 //};
 
 //document.addEventListener("DOMContentLoaded",()=>{
 
+
 //});
 
 function renderCardsList(foods) {
-//console.log(foods);
-//localStorage.setItem("results",foods);
-
+  //console.log(foods);
+  //localStorage.setItem("results",foods);
 
   let markup = ``;
+
 
   
   for (let i = 0; i < pictures[0].results.length; i += 1) {
@@ -119,38 +122,43 @@ function renderCardsList(foods) {
           favorites.splice(j,1);
 
           localStorage.setItem("favorites",JSON.stringify(favorites));
-        }
       }
-      
+      }
     }
   }
- });
+  });
 
- //document.addEventListener("change",()=>{
+  //document.addEventListener("change",()=>{
 
- //const ratings=document.querySelectorAll(".rating");
- // console.log("hello");
- // if (ratings.length>0){
- //   initRatings();
- // }
+  //const ratings=document.querySelectorAll(".rating");
+  // console.log("hello");
+  // if (ratings.length>0){
+  //   initRatings();
+  // }
 
- //});
- //}
-//rating.innerHTML=starMarkup;
-//console.log(rating);
-//const tags=document.createElement(markup);
- // gallery.append(tags);
-  gallery.innerHTML=markup;
- // console.log(tags);
-//  const ratings=document.querySelectorAll(".rating");
- // console.log(ratings);
- // if (ratings.length>0){
- //   initRatings();
- // }
-  gallery.insertAdjacentHTML("beforeend", `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`);
+  //});
+  //}
+  //rating.innerHTML=starMarkup;
+  //console.log(rating);
+  //const tags=document.createElement(markup);
+  // gallery.append(tags);
+  gallery.innerHTML = markup;
+  // console.log(tags);
+  //  const ratings=document.querySelectorAll(".rating");
+  // console.log(ratings);
+  // if (ratings.length>0){
+  //   initRatings();
+  // }
+  gallery.insertAdjacentHTML(
+    'beforeend',
+    `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
+  );
+
+
  
+
   const container = document.getElementById('tui-pagination-container');
-  
+
   const options = {
     totalItems: foods.totalPages,
     itemsPerPage: 9,
@@ -161,9 +169,9 @@ function renderCardsList(foods) {
     lastItemClassName: 'tui-last-child',
     template: {
       page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
       moveButton:
-
         '<a href="#" class="tui-page-btn tui-{{type}}">' +
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</a>',
@@ -174,45 +182,38 @@ function renderCardsList(foods) {
       moreButton:
         '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
-        '</a>'
-    }
+        '</a>',
+    },
   };
   const pagination = new Pagination(container, options);
   const instance = new Pagination(container, options);
   instance.getCurrentPage();
-  instance.on('afterMove', (event) => {
-   
+  instance.on('afterMove', event => {
     loadPage = event.page;
 
-      
-
     if (loadPage * stop >= foods.totalPages) {
-      perPage = (foods.totalPages) % ((loadPage - 1) * stop);
-
-    
-
+      perPage = foods.totalPages % ((loadPage - 1) * stop);
     }
-    if (loadPage > Number.parseInt((foods.totalPages) % stop) + 1) {
-
-       return;
+    if (loadPage > Number.parseInt(foods.totalPages % stop) + 1) {
+      return;
     }
 
-   
-    axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
-      
-      pictures.splice(0,1);
-      
-      pictures.push(response.data);
-      
-      renderCardsList(response.data);
+    axios
+      .get(base_url, {
+        params: { category: sort, page: loadPage, limit: perPage },
+      })
+      .then(response => {
+        pictures.splice(0, 1);
 
-    });
+        pictures.push(response.data);
 
+        renderCardsList(response.data);
+      });
   });
- 
-  perPage=stop;
 
+  perPage = stop;
 }
+
 
 const base_url = "https://tasty-treats-backend.p.goit.global/api/recipes?categories";
 
@@ -240,124 +241,124 @@ Notiflix.Report.warning('Warning', "Sorry, there are no images matching your sea
   renderCardsList(response.data);
 
 
-})
+axios
+  .get(base_url, { params: { category: sort, page: loadPage, limit: perPage } })
+  .then(response => {
+    if (response.data.totalPages === 0) {
+      galllery.innerHTML = ``;
+      // things.innerHTML=``;
+      //  gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+      //  /<p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+      //plugCover.classList.toggle(".is-hidden");
+
+      Notiflix.Report.warning(
+        'Warning',
+        'Sorry, there are no images matching your search query. Please try again',
+        'Warning'
+      );
+    } else {
+      pictures.push(response.data);
+    }
+
+    renderCardsList(response.data);
+  })
   .catch(error => {
     console.log(error);
-
-      
-
   });
 
+const category_url =
+  'https://tasty-treats-backend.p.goit.global/api/categories';
 
 
-const category_url = "https://tasty-treats-backend.p.goit.global/api/categories";
+
+
 
 //const fetchOategiries = async () => {
  // const response = await axios.get(URL);
 //  const results = await response;
  // return results;
+
 //};
 axios.get(category_url).then(response => {
-  const recipes_markup = response.data.map((category) =>
-
-    `<a class="nav-scroller__item" href="#">${category.name}</a>`
-  ).join("");
+  const recipes_markup = response.data
+    .map(
+      category => `<a class="nav-scroller__item" href="#">${category.name}</a>`
+    )
+    .join('');
   recipes.innerHTML = recipes_markup;
 
 
-
-  recipes.addEventListener("click", (evt) => {
- 
+  recipes.addEventListener('click', evt => {
     for (const item of response.data) {
       if (item.name === evt.target.innerText) {
-        
-       sort=evt.target.innerText;
-     
-       loadPage=1;
-    
+        sort = evt.target.innerText;
 
-        pictures.splice(0, 1);
+
+        loadPage = 1;
+
       
-        axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
-      console.log(response);
-       
-       
-              if(response.data.totalPages===0)
-              {
-         
+        pictures.splice(0, 1);
 
-               gallery.innerHTML=``;
+        axios
+          .get(base_url, {
+            params: { category: sort, page: loadPage, limit: perPage },
+          })
+          .then(response => {
+            console.log(response);
 
-           //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-          //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-          Notiflix.Report.failure('Error', 'Sorry, there are no images matching your search query. Please try again', function retry() {
-            return;
-          },); 
+            if (response.data.totalPages === 0) {
+              gallery.innerHTML = ``;
 
-            }else{
-                pictures.push(response.data);
+              //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+              //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+              Notiflix.Report.failure(
+                'Error',
+                'Sorry, there are no images matching your search query. Please try again',
+                function retry() {
+                  return;
+                }
+              );
+            } else {
+              pictures.push(response.data);
 
-          renderCardsList(response.data);
-         
-        
-             }
-
-
-        })
+              renderCardsList(response.data);
+            }
+          })
           .catch(error => {
             console.log(error);
-
-             
-
           });
-
-
-
       }
     }
   });
 });
 
-allCategories.addEventListener("click",()=>{
+allCategories.addEventListener('click', () => {
+  loadPage = 1;
 
-  loadPage=1;
-
-  sort="";
+  sort = '';
   pictures.splice(0, 1);
-  axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
-  
-    if (response.data.totalPages === 0) {
-    
-      gallery.innerHTML = ``;
-  
-  //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-  //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-  
-  
-      return;
-    } else {
-  
-      pictures.push(response.data);
-  
-     
-  
-    }
-  
-    renderCardsList(response.data);
-  
-  
-  })
+  axios
+    .get(base_url, {
+      params: { category: sort, page: loadPage, limit: perPage },
+    })
+    .then(response => {
+      if (response.data.totalPages === 0) {
+        gallery.innerHTML = ``;
+
+        //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
+        //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
+
+        return;
+      } else {
+        pictures.push(response.data);
+      }
+
+      renderCardsList(response.data);
+    })
     .catch(error => {
       console.log(error);
-  
-        
-  
     });
-
-})
-
-
-
+});
 
 
 /*function initRatings(){

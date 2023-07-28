@@ -46,9 +46,7 @@ svg {
   display: flex;
   gap: 32px;
 }
-.categories-all-main {
-  outline: 1px solid green;
-}
+
 .cards-filter {
   outline: 1px solid blue;
 }
