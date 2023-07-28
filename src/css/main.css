@@ -4,11 +4,32 @@
   --primary-white-color: #ffffff;
   --primary-black-color: #050505;
   --text-white-color: #f8f8f8;
-  --accent-color: #9bb537;
+  --accent-color: #9bb537;}
 
   /* Dark Theme */
-  --primary-dark-color: #1e1e1e;
+  /* --primary-dark-color: #1e1e1e;
+} */
+/* 
+:root {
+  --var-background: #FFFFFF;
+  --var-text: #000;
+  --accent-background: #383838;
+  --accent: #9BB537;
+  --grey: #B4B4B4;
+  --var-dark: #050505;
+  --var-grey: rgba(5, 5, 5, 0.50);
+  --var-grey-menu: rgba(5, 5, 5, 0.30);
+
+} */
+
+:root[data-theme='dark'] {
+  --primary-white-color: #1E1E1E;
+  /* --var-text: #FFF; */
+  --primary-black-color: #FFFFFF;
+  /* --var-grey: rgba(255, 255, 255, 0.50);
+  --var-grey-menu: rgba(255, 255, 255, 0.30); */
 }
+
 body {
   font-family: 'Inter';
   color: var(--primary-black-color);
