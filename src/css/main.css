@@ -9,6 +9,7 @@
   /* Dark Theme */
   --primary-dark-color: #1e1e1e;
 }
+
 body {
   font-family: 'Inter';
   color: var(--primary-black-color);

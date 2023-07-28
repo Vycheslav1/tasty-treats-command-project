@@ -205,7 +205,7 @@ option:is(:hover, :focus) {
 
   .extra-filters-form {
     gap: 16px;
-    width: 544px;
+    /* width: 544px; */
     /* width: 419px; */
     /* width: 419px; оскільки кнопку перенесла всередину форми */
   }
