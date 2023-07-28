@@ -9,3 +9,4 @@ import './js/home_categories-api';
 import './js/popular-recipes';
 import './js/add-rating';
 import './js/recipe';
+
