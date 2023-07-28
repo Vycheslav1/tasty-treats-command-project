@@ -1,59 +1,57 @@
 import axios from 'axios';
-
+​
 import Notiflix from 'notiflix';
-
+​
 import Pagination from 'tui-pagination';
-
+​
 import 'tui-pagination/dist/tui-pagination.css';
-
+​
 let url;
-
+​
 let stop;
-
+​
 let searchParam;
-
+​
 let pictures = [];
-
+​
 let favorites = [];
-
+​
 let loadPage;
-
+​
 let pageNumber;
-
+​
 loadPage = 1;
-
+​
 let region;
-
+​
 let constituent;
-
+​
 let period;
-
+​
 let sort;
-
+​
 let perPage;
-
+​
 const recipes = document.querySelector('.nav-scroller');
-
-
-const gallery = document.querySelector(".photos .pictures-gallery");
+​
+const gallery = document.querySelector('.photos .pictures-gallery');
 //const things = document.querySelector(".photos");
-const allCategories=document.querySelector(".all-categories");
-
-
+const allCategories = document.querySelector('.all-categories');
+​
 const plugCover = document.querySelector('.plug');
-
+​
 const chapter = document.querySelector('.section-elements');
-
+​
 perPage = 9;
-
+​
 stop = perPage;
-
+​
 period = 0;
-
+​
 region = '';
-
+​
 constituent = '';
-
+​
 sort = '';
 //const fetchObjects = async () => {
 // console.log(url);
@@ -61,81 +59,74 @@ sort = '';
 //  const results = await response;
 //  return results;
 //};
-
+​
 //document.addEventListener("DOMContentLoaded",()=>{
-
-
+​
 //});
-
+​
 function renderCardsList(foods) {
   //console.log(foods);
   //localStorage.setItem("results",foods);
-
+​
   let markup = ``;
-
-
-  
+​
   for (let i = 0; i < pictures[0].results.length; i += 1) {
-    let stars=`<div class="all-stars">`;
-    for(let j=0;j<5;j+=1)
-    {
-     if(j<Math.floor(pictures[0].results[i].rating))
-      {
-     stars+=`<span class="fa fa-star checked"></span>`
-      }else{
-        stars+=`<span class="fa fa-star star_color"></span>`
+    let stars = `<div class="all-stars">`;
+    for (let j = 0; j < 5; j += 1) {
+      if (j < Math.floor(pictures[0].results[i].rating)) {
+        stars += `<span class="fa fa-star checked"></span>`;
+      } else {
+        stars += `<span class="fa fa-star star_color"></span>`;
       }
     }
-    stars+=`</div>`
-    markup += `<li><div class="photo-card"><img class="picture"  src=${pictures[0].results[i].preview} alt=${pictures[0].results[i].tags[0]} loading="lazy" />
- <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p><p class="recipe_rating"}>${pictures[0].results[i].rating}</p>`+stars+
- `<button type="button" class="good-recipes">See recipe</button><label id="brand" class="label-check">
+    stars += `</div>`;
+    markup +=
+      `<li><div class="photo-card"><img class="picture"  src=${pictures[0].results[i].preview} alt=${pictures[0].results[i].tags[0]} loading="lazy" />
+ <h2 class="card-title">${pictures[0].results[i].title}</h2><p class="recipe-description">${pictures[0].results[i].description}</p><p class="recipe_rating"}>${pictures[0].results[i].rating}</p>` +
+      stars +
+      `<button type="button" class="good-recipes">See recipe</button><label id="brand" class="label-check">
 <input class="modal-check " type="checkbox" id="check-item" />
 <i class="fa fa-heart" ></i>
 </label></div></li>`;
-  };//};
-  
-
-   const check=document.querySelector(".photos .pictures-gallery");
- // const rating=document.querySelectorAll(".stars")
- //for(const child in check.childNodes)
- //{
- check.addEventListener("click",(evt)=>{
-  const modal=document.querySelectorAll(".modal-check");
-
- const heart=document.querySelectorAll(".photo-card .label-check .fa-heart");
-//console.log(heart);
- 
- 
-  for(let i=0;i<pictures[0].results.length;i+=1)
-  {
-    if(modal[i].checked)
-    {
-      evt.target.classList.toggle("change-color");
-      console.log(i);
-  localStorage.setItem("favorites",JSON.stringifypictures[i]);
-    }else{
-      for(let j=0;j<favorites.length;j=+1)
-      {
-        if(favorites[j]===pictures[i])
-        {
-          favorites.splice(j,1);
-
-          localStorage.setItem("favorites",JSON.stringify(favorites));
-      }
+  } //};
+​
+  const check = document.querySelector('.photos .pictures-gallery');
+  // const rating=document.querySelectorAll(".stars")
+  //for(const child in check.childNodes)
+  //{
+  check.addEventListener('click', evt => {
+    const modal = document.querySelectorAll('.modal-check');
+​
+    const heart = document.querySelectorAll(
+      '.photo-card .label-check .fa-heart'
+    );
+    //console.log(heart);
+​
+    for (let i = 0; i < pictures[0].results.length; i += 1) {
+      if (modal[i].checked) {
+        evt.target.classList.toggle('change-color');
+        console.log(i);
+        localStorage.setItem('favorites', JSON.stringifypictures[i]);
+      } else {
+        for (let j = 0; j < favorites.length; j = +1) {
+          if (favorites[j] === pictures[i]) {
+            favorites.splice(j, 1);
+​
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+          }
+        }
       }
     }
-  }
   });
-
+​
   //document.addEventListener("change",()=>{
-
+​
   //const ratings=document.querySelectorAll(".rating");
   // console.log("hello");
   // if (ratings.length>0){
   //   initRatings();
   // }
-
+​
   //});
   //}
   //rating.innerHTML=starMarkup;
@@ -153,12 +144,9 @@ function renderCardsList(foods) {
     'beforeend',
     `<section class="pagination-wrapper"><div id="tui-pagination-container" class="tui-pagination"></section></div>`
   );
-
-
- 
-
+​
   const container = document.getElementById('tui-pagination-container');
-
+​
   const options = {
     totalItems: foods.totalPages,
     itemsPerPage: 9,
@@ -190,57 +178,33 @@ function renderCardsList(foods) {
   instance.getCurrentPage();
   instance.on('afterMove', event => {
     loadPage = event.page;
-
+​
     if (loadPage * stop >= foods.totalPages) {
       perPage = foods.totalPages % ((loadPage - 1) * stop);
     }
     if (loadPage > Number.parseInt(foods.totalPages % stop) + 1) {
       return;
     }
-
+​
     axios
       .get(base_url, {
         params: { category: sort, page: loadPage, limit: perPage },
       })
       .then(response => {
         pictures.splice(0, 1);
-
+​
         pictures.push(response.data);
-
+​
         renderCardsList(response.data);
       });
   });
-
+​
   perPage = stop;
 }
-
-
-const base_url = "https://tasty-treats-backend.p.goit.global/api/recipes?categories";
-
-
-
-axios.get(base_url,{params:{category:sort,page:loadPage,limit:perPage}}).then(response => {
-  
-  if (response.data.totalPages===0) {
-  
-    galllery.innerHTML = ``;
-   // things.innerHTML=``;
- //  gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-//  /<p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-//plugCover.classList.toggle(".is-hidden");
- 
-Notiflix.Report.warning('Warning', "Sorry, there are no images matching your search query. Please try again", 'Warning');
-  } else {
-
-    pictures.push(response.data);
-
-   
-
-  }
-
-  renderCardsList(response.data);
-
-
+​
+const base_url =
+  'https://tasty-treats-backend.p.goit.global/api/recipes?categories';
+​
 axios
   .get(base_url, { params: { category: sort, page: loadPage, limit: perPage } })
   .then(response => {
@@ -250,7 +214,7 @@ axios
       //  gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
       //  /<p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
       //plugCover.classList.toggle(".is-hidden");
-
+​
       Notiflix.Report.warning(
         'Warning',
         'Sorry, there are no images matching your search query. Please try again',
@@ -259,25 +223,20 @@ axios
     } else {
       pictures.push(response.data);
     }
-
+​
     renderCardsList(response.data);
   })
   .catch(error => {
     console.log(error);
   });
-
+​
 const category_url =
   'https://tasty-treats-backend.p.goit.global/api/categories';
-
-
-
-
-
+​
 //const fetchOategiries = async () => {
- // const response = await axios.get(URL);
+// const response = await axios.get(URL);
 //  const results = await response;
- // return results;
-
+// return results;
 //};
 axios.get(category_url).then(response => {
   const recipes_markup = response.data
@@ -286,29 +245,26 @@ axios.get(category_url).then(response => {
     )
     .join('');
   recipes.innerHTML = recipes_markup;
-
-
+​
   recipes.addEventListener('click', evt => {
     for (const item of response.data) {
       if (item.name === evt.target.innerText) {
         sort = evt.target.innerText;
-
-
+​
         loadPage = 1;
-
-      
+​
         pictures.splice(0, 1);
-
+​
         axios
           .get(base_url, {
             params: { category: sort, page: loadPage, limit: perPage },
           })
           .then(response => {
             console.log(response);
-
+​
             if (response.data.totalPages === 0) {
               gallery.innerHTML = ``;
-
+​
               //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
               //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
               Notiflix.Report.failure(
@@ -320,7 +276,7 @@ axios.get(category_url).then(response => {
               );
             } else {
               pictures.push(response.data);
-
+​
               renderCardsList(response.data);
             }
           })
@@ -331,10 +287,10 @@ axios.get(category_url).then(response => {
     }
   });
 });
-
+​
 allCategories.addEventListener('click', () => {
   loadPage = 1;
-
+​
   sort = '';
   pictures.splice(0, 1);
   axios
@@ -344,44 +300,42 @@ allCategories.addEventListener('click', () => {
     .then(response => {
       if (response.data.totalPages === 0) {
         gallery.innerHTML = ``;
-
+​
         //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
         //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-
+​
         return;
       } else {
         pictures.push(response.data);
       }
-
+​
       renderCardsList(response.data);
     })
     .catch(error => {
       console.log(error);
     });
 });
-
-
+​
 /*function initRatings(){
   let ratingActive, ratingValue;
   for (let index=0; index<ratings.length; index++){
       const rating=ratings[index];
           initRating(rating);
   }
-
+​
   function initRating(rating){
       initRatingVars(rating);
       setRatingActiveWidth();
   }
-
+​
   function initRatingVars(rating){
       ratingActive=rating.querySelectorAll('.rating_active')[0];
       ratingValue=rating.querySelectorAll('.rating_value')[0];
   }
-
-
+​
+​
   function setRatingActiveWidth(index=ratingValue.innerHTML){        
       const ratingActiveWidth = index/0.05;
       ratingActive.style.width=`${ratingActiveWidth}%`;
   }
 }*/
-
