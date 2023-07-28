@@ -34,12 +34,9 @@ let perPage;
 
 const recipes = document.querySelector('.nav-scroller');
 
-
 const gallery = document.querySelector('.photos .pictures-gallery');
 //const things = document.querySelector(".photos");
 const allCategories = document.querySelector('.all-categories');
-
-
 
 const plugCover = document.querySelector('.plug');
 
@@ -64,7 +61,6 @@ sort = '';
 //};
 
 //document.addEventListener("DOMContentLoaded",()=>{
-
 
 //});
 
@@ -101,12 +97,10 @@ function renderCardsList(foods) {
   check.addEventListener('click', evt => {
     const modal = document.querySelectorAll('.modal-check');
 
-
     const heart = document.querySelectorAll(
       '.photo-card .label-check .fa-heart'
     );
     //console.log(heart);
-
 
     for (let i = 0; i < pictures[0].results.length; i += 1) {
       if (modal[i].checked) {
@@ -208,11 +202,8 @@ function renderCardsList(foods) {
   perPage = stop;
 }
 
-
 const base_url =
   'https://tasty-treats-backend.p.goit.global/api/recipes?categories';
-
-
 
 axios
   .get(base_url, { params: { category: sort, page: loadPage, limit: perPage } })
@@ -234,125 +225,6 @@ axios
     }
 
     renderCardsList(response.data);
-
-
-    axios
-      .get(base_url, {
-        params: { category: sort, page: loadPage, limit: perPage },
-      })
-      .then(response => {
-        if (response.data.totalPages === 0) {
-          galllery.innerHTML = ``;
-          // things.innerHTML=``;
-          //  gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-          //  /<p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-          //plugCover.classList.toggle(".is-hidden");
-
-          Notiflix.Report.warning(
-            'Warning',
-            'Sorry, there are no images matching your search query. Please try again',
-            'Warning'
-          );
-        } else {
-          pictures.push(response.data);
-        }
-
-        renderCardsList(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    const category_url =
-      'https://tasty-treats-backend.p.goit.global/api/categories';
-
-    //const fetchOategiries = async () => {
-    // const response = await axios.get(URL);
-    //  const results = await response;
-    // return results;
-
-    //};
-    axios.get(category_url).then(response => {
-      const recipes_markup = response.data
-        .map(
-          category =>
-            `<a class="nav-scroller__item" href="#">${category.name}</a>`
-        )
-        .join('');
-      recipes.innerHTML = recipes_markup;
-
-      recipes.addEventListener('click', evt => {
-        for (const item of response.data) {
-          if (item.name === evt.target.innerText) {
-            sort = evt.target.innerText;
-
-            loadPage = 1;
-
-            pictures.splice(0, 1);
-
-            axios
-              .get(base_url, {
-                params: { category: sort, page: loadPage, limit: perPage },
-              })
-              .then(response => {
-                console.log(response);
-
-                if (response.data.totalPages === 0) {
-                  gallery.innerHTML = ``;
-
-                  //    gallery.innerHTML=`<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-                  //    <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-                  Notiflix.Report.failure(
-                    'Error',
-                    'Sorry, there are no images matching your search query. Please try again',
-                    function retry() {
-                      return;
-                    }
-                  );
-                } else {
-                  pictures.push(response.data);
-
-                  renderCardsList(response.data);
-                }
-              })
-              .catch(error => {
-                console.log(error);
-              });
-          }
-        }
-      });
-    });
-
-    allCategories.addEventListener('click', () => {
-      loadPage = 1;
-
-      sort = '';
-      pictures.splice(0, 1);
-      axios
-        .get(base_url, {
-          params: { category: sort, page: loadPage, limit: perPage },
-        })
-        .then(response => {
-          if (response.data.totalPages === 0) {
-            gallery.innerHTML = ``;
-
-            //    gallery.innerHTML = `<div class="plug"><svg class="icon-plug"><use href="./images/sprite/icons.svg#icon-elements"></use></svg>
-            //   <p class="plug-text">Sorry, there are no images matching your search query. Please try again</p></div>`;
-
-            return;
-          } else {
-            pictures.push(response.data);
-          }
-
-          renderCardsList(response.data);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    });
-  });
-
-
   })
   .catch(error => {
     console.log(error);
@@ -460,6 +332,7 @@ allCategories.addEventListener('click', () => {
       ratingActive=rating.querySelectorAll('.rating_active')[0];
       ratingValue=rating.querySelectorAll('.rating_value')[0];
   }
+
 
   function setRatingActiveWidth(index=ratingValue.innerHTML){        
       const ratingActiveWidth = index/0.05;
