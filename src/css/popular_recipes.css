@@ -1,7 +1,7 @@
-
 @media screen and (min-width: 375px) {
   .popular-recipes {
     width: 332px;
+    margin-right: 32px;
     margin-bottom: 10px;
   }
   .article-poprecipes {
@@ -83,6 +83,7 @@
   .popular-recipes {
     width: 176px;
     margin-bottom: 16px;
+    margin-right: 32px;
   }
 
   .article-poprecipes img {
@@ -100,7 +101,7 @@
   }
 
   .article-poprecipes {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
   .article-poprecipes-content {
     width: 120px;
@@ -112,6 +113,7 @@
     font-size: 14px;
     line-height: 18px;
     margin-bottom: 32px;
+    margin-right: 32px;
   }
   .article-poprecipes-title {
     width: 120px;
@@ -120,30 +122,29 @@
     text-overflow: ellipsis;
   }
 
+  @media screen and (min-width: 1280px) {
+    .popular-recipes-title {
+      font-size: 20px;
+      line-height: 28px;
 
-@media screen and (min-width: 1280px) {
-  .popular-recipes-title {
-    font-size: 20px;
-    line-height: 28px;
+      margin-bottom: 32px;
+    }
 
-    margin-bottom: 32px;
+    .popular-recipes {
+      width: 235px;
+      margin-bottom: 10px;
+    }
+    .article-poprecipes img {
+      margin-right: 16px;
+    }
+    .article-poprecipes-title {
+      width: 155px;
+    }
+    .article-poprecipes-content {
+      width: 155px;
+    }
+    .article-poprecipes-text {
+      width: 155px;
+    }
   }
-
-  .popular-recipes {
-    width: 235px;
-    margin-bottom: 10px;
-  }
-  .article-poprecipes img {
-    margin-right: 16px;
-  }
-  .article-poprecipes-title {
-    width: 155px;
-  }
-  .article-poprecipes-content {
-    width: 155px;
-  }
-  .article-poprecipes-text {
-    width: 155px;
-  }
-
 }

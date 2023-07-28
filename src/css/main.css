@@ -61,7 +61,7 @@ svg {
 }
 .container {
   margin: 0 auto;
-  outline: 1px solid tomato;
+
 }
 .container-wrap {
   display: flex;
@@ -69,7 +69,7 @@ svg {
 }
 
 .cards-filter {
-  outline: 1px solid blue;
+
 }
 @media screen and (max-width: 767px) {
   .container {
