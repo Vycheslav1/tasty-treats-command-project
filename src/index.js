@@ -1,5 +1,5 @@
 import './js/header-burger';
-import './js/create-order';
+import './js/create_order';
 import './js/switcher';
 import './js/scroll-up';
 import './js/slider';
