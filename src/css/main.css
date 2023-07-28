@@ -1,14 +1,13 @@
-
 :root {
   /* White Theme */
 
-  --primary-white-color: #FFFFFF;
-  --primaty-black-color: #050505;
-  --text-white-color: #F8F8F8;
-  --accent-color: #9BB537;
+  --primary-white-color: #ffffff;
+  --primary-black-color: #050505;
+  --text-white-color: #f8f8f8;
+  --accent-color: #9bb537;
 
   /* Dark Theme */
-  --primary-dark-color: #1E1E1E;
+  --primary-dark-color: #1e1e1e;
 }
 body {
   font-family: 'Inter';
@@ -47,9 +46,7 @@ svg {
   display: flex;
   gap: 32px;
 }
-.categories-all-main {
-  outline: 1px solid green;
-}
+
 .cards-filter {
   outline: 1px solid blue;
 }
