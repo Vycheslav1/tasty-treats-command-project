@@ -1,0 +1,1 @@
+{"mappings":"gfAAAA,EAAA,S","sources":["src/favorite-page.js"],"sourcesContent":["import './js/favorites';\nimport './js/header-burger';"],"names":["parcelRequire"],"version":3,"file":"favorites-page.2a8a52ea.js.map"}
