@@ -129,7 +129,7 @@
   font-size: 18px;
   line-height: 22px;
 }
-.cards__item {
+/* .cards__item {
     color: #f8f8f8;
     background: linear-gradient(1deg,rgba(5,5,5,.6) 0%,rgba(5,5,5,0) 100%);
     border-radius: 15px;
@@ -203,9 +203,9 @@
 }
 .btn-primary {
     /* background-color: #9bb537; */
-    color: white;
-}
-.btn {
+    /* color: white; */
+ /* }  */
+/* .btn {
     cursor: pointer;
     border: 1px solid #9bb537;
     background: 0 0;
@@ -213,12 +213,12 @@
     padding: 14px 28px;
     font-size: 14px;
     font-weight: 500;
-}
+} */
 /* .btn :hover,
 .btn :focus {
     background: #9bb537;
 } */
-.rating__value {
+/* .rating__value {
     color: var(--primary-text-CH-color-RATING);
     font-size: 14px;
     font-weight: 500;
@@ -253,11 +253,4 @@
 }
 .rating__body {
     position: relative;
-}
-
-  
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
+}  */
