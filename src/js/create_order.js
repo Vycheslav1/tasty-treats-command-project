@@ -1,5 +1,5 @@
 import Notiflix from 'notiflix';
-const openButtonHeroModal = document.querySelector('.button-order-now-hero-js');
+const openButtonHeroModal = document.querySelector('.btn-order');
 const closeButtonModal = document.querySelector(
   '.order-now-modal-button-close-js'
 );

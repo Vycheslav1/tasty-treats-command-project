@@ -1,5 +1,5 @@
 import './js/header-burger';
-import './js/create-order';
+import './js/create_order';
 import './js/switcher';
 import './js/scroll-up';
 import './js/slider';
@@ -9,4 +9,3 @@ import './js/home_categories-api';
 import './js/popular-recipes';
 import './js/add-rating';
 import './js/recipe';
-
