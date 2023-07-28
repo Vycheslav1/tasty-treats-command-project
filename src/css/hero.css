@@ -11,7 +11,7 @@
   margin-bottom: 28px;
 }
 .hero-first-title {
-  color: var(--primary-dark-color);
+  color: var(--primary-black-color);
   margin-bottom: 14px;
   font-size: 26px;
   font-style: normal;
@@ -28,7 +28,7 @@
 }
 .hero-description {
   width: 335px;
-  color: var(--primary-dark-color);
+  color: var(--primary-black-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -45,7 +45,7 @@
   align-items: center;
   gap: 10px;
   background-color: transparent;
-  color: var(--primary-dark-color);
+  color: var(--primary-black-color);
   border-radius: 15px;
   border: 1px solid var(--accent-color);
   font-size: 14px;
@@ -79,7 +79,7 @@ img {
 
 .image {
   height: 280px;
-  background-color: var(--primary-dark-color);
+  background-color: var(--primary-black-color);
 }
 .image:not(:last-child) {
   border-radius: 10px;
@@ -149,7 +149,7 @@ img {
   height: 320px;
 }
 .swiper-pagination-bullet {
-  background-color: var(--primary-dark-color);
+  background-color: var(--primary-black-color);
   text-align: center;
   font-family: Poppins;
   font-size: 25px;
