@@ -135,16 +135,16 @@ async function getRecipesByKeyword(keyword = '', category, ingredients, area) {
   }
 }
 
-getRecipesByKeyword().then(data => {
-  let response = data.results;
-  // console.log(response);
-  response.forEach(resipe => {
-    // recipes1.push(resipe);
-    // console.log(recipes1);
-    // return recipes1;
-    resipe;
-  });
-});
+// getRecipesByKeyword().then(data => {
+//   let response = data.results;
+//   // console.log(response);
+//   response.map(resipe => {
+//     // recipes1.push(resipe);
+//     // console.log(recipes1);
+//     // return recipes1;
+//     resipe;
+//   }).join('');
+// });
 
 // function getOptions(keyWord, recipes) {
 //   return recipes.filter(recipe => {
@@ -246,10 +246,9 @@ async function handleSearchInput() {
           const { _id, preview, title, description, rating } = resipes;
 
           allCategoriesGallery.innerHTML = '';
-          allCategoriesGallery
-            .insertAdjacentHTML(
-              'beforeend',
-              `<li class="cards__item items-set"
+          allCategoriesGallery.insertAdjacentHTML(
+            'beforeend',
+            `<li class="cards__item items-set"
    data-id="${_id}">
     <img src="${preview}" alt="${title}" class="cards__img" />
     <button class="cards__fav-btn">
@@ -319,13 +318,13 @@ async function handleSearchInput() {
     </div>
   </li>
     `
-            )
-            .join('');
+          );
         })
-        .catch(error => {
-          // onFetchError(error);
-          console.log(error);
-        });
+        .join('');
+      // .catch(error => {
+      //   // onFetchError(error);
+      //   console.log(error);
+      // });
     });
   }
 }
