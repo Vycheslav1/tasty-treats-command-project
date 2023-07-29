@@ -70,7 +70,28 @@ function onSubmitForm(event) {
   })
     .then(response => response.json())
     .then(data => {
-      console.log('Відповідь від бекенду:', data);
+      // console.log('Відповідь від бекенду:', data);
+      data = dataToSend;
+      Notiflix.Report.success(
+        'Your data flew to the server',
+        'if you sent valid information, wait for our call',
+        'OK',
+        {
+          width: '320px',
+          svgSize: '60px',
+          messageFontSize: '20px',
+          backgroundColor: '#fff',
+          success: {
+            notiflixIconColor: '#9bb537',
+            // svgColor: '#9bb537',
+            titleColor: '#9bb537',
+            messageColor: '#9bb537',
+            buttonBackground: '#9bb537',
+            buttonColor: '#fff',
+            backOverlayColor: 'rgba(4, 66, 28, 0.6)',
+          },
+        }
+      );
     })
     .catch(error => {
       console.error('Помилка при відправці даних на бекенд:', error);
