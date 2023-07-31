@@ -23,29 +23,29 @@ getAllEvents().then(({data})=>{
     console.log(data)
     const markup = createMarkup(data);
     refs.images.insertAdjacentHTML('beforeend',markup);     
-    // Swiper.use([Navigation, Pagination]);
-    const swiper = new Swiper('.swiper', {    
-      // Optional parameters  
-      
-      effect: 'cube',
-      cubeEffect: {
-      slideShadows: false,
-      
-    },
-      autoplay: {
-    delay: 3000,
-    disableOnInteraction:false,    
-    },
-    mousewheel: {
-    invert: true,
     
-    },            
-      loop: true,       
+    const swiper = new Swiper('.swiper', {    
+      // Optional parameters        
+      effect: 'cube',
+        cubeEffect: {
+        slideShadows: false,   
+      },
+
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction:false,    
+      },
+      
+      mousewheel: {
+        invert: true,    
+      },
+    
+      loop: true,   
+      
       // If we need pagination
       pagination: {
         el: '.swiper-pagination',  
-        clickable: true,
-        
+        clickable: true,        
       },      
     });
 }).catch(
