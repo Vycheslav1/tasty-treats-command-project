@@ -66,19 +66,19 @@ svg {
 }
 
 .light-extra-filters-form-input {
-  color: var(--primary-black-color);
+  color: var(--var-dark);
 }
 
 .light-extra-filters-form-input ::placeholder {
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--var-grey);
 }
 
 .dark-extra-filters-form-input {
-  color: #fff;
+  color: var(--var-dark);
 }
 
 .dark-extra-filters-form-input ::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+color: var(--var-grey);
 }
 
 .extra-filters-search-icon {
@@ -102,11 +102,11 @@ svg {
 }
 
 .extra-filters-search-icon-close-lignt {
-  stroke: var(--primary-black-color);
+  stroke: var(--var-dark);
 }
 
 .extra-filters-search-icon-close-dark {
-  stroke: var(--primary-white-color);
+  stroke: var(--var-dark);
 }
 
 .extra-filters-form-input:is(:focus, :hover) + .extra-filters-search-icon {
@@ -128,9 +128,10 @@ svg {
   font-weight: 500;
   line-height: 1.28;
   overflow: auto;
+  color: var(--var-grey);
 }
 
-.light-extra-filters-label,
+/* .light-extra-filters-label,
 .light-extra-filters-form-select {
   color: rgba(5, 5, 5, 0.5);
 }
@@ -138,7 +139,7 @@ svg {
 .dark-extra-filters-label,
 .dark-extra-filters-form-select {
   color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 .form-el-time,
 .form-el-area {
@@ -148,27 +149,27 @@ svg {
 .form-el-ingredients .extra-filters-form-select {
   width: 188px;
 }
-
+/* 
 .light-extra-filters-form-select:is(:hover, :focus) {
   color: var(--primary-black-color);
 }
 
 .dark-extra-filters-form-select:is(:hover, :focus) {
-  color: #fff;
-}
+  color: var(--var-dark);
+} */
 
 option {
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--var-grey);
   height: 188px;
   overflow: auto;
 }
 option:is(:hover, :focus) {
-  color: var(--primary-black-color);
+  color: var(--var-dark);
   background-color: transparent;
 }
 
 .option-active {
-  color: var(--primary-black-color);
+  color: var(--var-dark);
   background-color: transparent;
 }
 
@@ -177,7 +178,7 @@ option:is(:hover, :focus) {
 }
 
 .option-choosed {
-  color: var(--primary-black-color);
+  color: var(--var-dark);
   background-color: transparent;
 }
 .extra-filters-reset-btn {
@@ -215,6 +216,7 @@ option:is(:hover, :focus) {
   .extra-filters-form-label {
     font-size: 14px;
     line-height: 1.28;
+    color: var(--var-grey);
   }
 
   .extra-filters-form-input {

@@ -84,7 +84,7 @@
   .nav-scroller{
     margin-bottom: 64px;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: var(--var-background);
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   width:235px;
   height:416px;
@@ -712,7 +712,7 @@
   flex-direction: column ;
   /* width:auto;
   height:auto; */
-  background:#fff;
+  background:var(--var-background);
 }
 .tupar {
   display: flex;

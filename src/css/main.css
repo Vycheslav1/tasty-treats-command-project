@@ -9,7 +9,7 @@
   /* Dark Theme */
   --primary-dark-color: #1e1e1e;
 }
-
+ /* Змінні для перемикача теми!!!!!! Одна змінна, але значення змінюється */
 :root {
   --var-background: #ffffff;
   --var-text: #000;
@@ -29,9 +29,14 @@
   --var-grey-menu: rgba(255, 255, 255, 0.3);
 }
 
+.header-shopping {
+  fill: var(--var-dark)
+}
+
 body {
   font-family: 'Inter';
   color: var(--primary-black-color);
+  background-color: var(--var-background);
 }
 * {
   box-sizing: border-box;
