@@ -39,6 +39,7 @@
 .eside{
   padding-top: 24px;
 }
+
 .nav-scroller::-webkit-scrollbar {
     width: 8px;
     height: 201px;
@@ -95,12 +96,12 @@
   font-weight:500;
   font-size:16px;
   line-height: 20px;
-  color:#050505 50%;
+  color: var(-var-grey);
   
   }
   
   .nav-scroller__item {
-  color:#050505 30%;
+  color: var(--var-grey-menu);
     display: flex;
     padding: 0.5rem 1.25rem;
     text-decoration: none;
@@ -174,7 +175,7 @@
     .nav-scroller{
 
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--var-background);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     width:235px;
     height:416px;
@@ -190,7 +191,7 @@
     }
     
     .nav-scroller__item {
-    color:#050505 30%;
+    color: var(--var-grey-menu);
       display: flex;
       padding: 0.5rem 1.25rem;
       text-decoration: none;
@@ -253,7 +254,7 @@
     border-width:1px;
     align-items:center;
     justify-content:center;
-    background:#fff;
+    background: var(--var-background);
     font-family:Inter;
     font-weight:500;
     font-size:18px;
@@ -264,7 +265,7 @@
     
     .nav-scroller{
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--var-background);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     width:235px;
     height:416px;
@@ -280,7 +281,7 @@
     }
     
     .nav-scroller__item {
-    color:#050505 30%;
+    color: var(--var-grey-menu);
       display: flex;
       padding: 0.5rem 1.25rem;
       text-decoration: none;
@@ -334,6 +335,7 @@
     list-style:none;
     }
     .all-categories{
+      color: var(--var-grey-menu);
        padding-top: 24px;
     display:flex;
     width:176px;
@@ -342,7 +344,7 @@
     border-width:1px;
     align-items:center;
     justify-content:center;
-    background:#fff;
+    background: var(--var-background);
     font-family:Inter;
     font-weight:500;
     font-size:18px;
@@ -354,7 +356,7 @@
     
     .nav-scroller{
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--var-background);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     width:235px;
     height:416px;
@@ -370,7 +372,7 @@
     }
     
     .nav-scroller__item {
-    color:#050505 30%;
+    color: var(--var-grey-menu);
       display: flex;
       padding: 0.5rem 1.25rem;
       text-decoration: none;
@@ -604,7 +606,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .photo-card .label-check input:checked ~ i {
-  background-color: #ffff;
+  background-color: var(--var-background);
   color: #f4f4fd;
 }
 
