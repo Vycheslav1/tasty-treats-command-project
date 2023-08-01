@@ -101,12 +101,12 @@ function renderCardsList(foods) {
       '.photo-card .label-check .fa-heart'
     );
     //console.log(heart);
-
+    console.log('pictures', pictures);
     for (let i = 0; i < pictures[0].results.length; i += 1) {
       if (modal[i].checked) {
         evt.target.classList.toggle('change-color');
         console.log(i);
-        localStorage.setItem('favorites', JSON.stringifypictures[i]);
+        localStorage.setItem('favorites', JSON.stringify(pictures[i]));
       } else {
         for (let j = 0; j < favorites.length; j = +1) {
           if (favorites[j] === pictures[i]) {
@@ -322,18 +322,18 @@ allCategories.addEventListener('click', () => {
       const rating=ratings[index];
           initRating(rating);
   }
-
+​
   function initRating(rating){
       initRatingVars(rating);
       setRatingActiveWidth();
   }
-
+​
   function initRatingVars(rating){
       ratingActive=rating.querySelectorAll('.rating_active')[0];
       ratingValue=rating.querySelectorAll('.rating_value')[0];
   }
-
-
+​
+​
   function setRatingActiveWidth(index=ratingValue.innerHTML){        
       const ratingActiveWidth = index/0.05;
       ratingActive.style.width=`${ratingActiveWidth}%`;
