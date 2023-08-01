@@ -28,6 +28,7 @@
 //   document.querySelector(".favorites").textContent = "No favorites found.";
 // }
 
+<<<<<<< Updated upstream
 // {
 //   area: 'Italian';
 //   category: 'Seafood';
@@ -54,7 +55,23 @@ function loadFavorites() {
   for (const i = 0; i < recipes.length; i++) {
     const recipe = recipes[i];
     const recipeItem = document.createElement('li');
+=======
+function loadFavorites() {
+  const recipes = localStorage.getItem("recipes");
+  if (!recipes) {
+    document.getElementById("favorites").innerHTML = "No favorites found.";
+    return;
+  }
+  const recipeList = document.getElementById("recipe-list");
+  for (const i = 0; i < recipes.length; i++) {
+    const recipe = recipes[i];
+    const recipeItem = document.createElement("li");
+>>>>>>> Stashed changes
     recipeItem.textContent = recipe.title;
     recipeList.appendChild(recipeItem);
   }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
