@@ -20,8 +20,10 @@ svg {
 }
 
 .extra-filters-section {
-  margin-top: 40px;
- text-align: center;
+
+  /* margin-top: 40px; */
+
+  text-align: center;
 }
 
 .extra-filters-form {
@@ -29,7 +31,7 @@ svg {
   height: auto;
   display: flex;
   gap: 14px;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   /* margin-left: auto; */
@@ -64,7 +66,7 @@ svg {
 }
 
 .light-extra-filters-form-input {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
 }
 
 .light-extra-filters-form-input ::placeholder {
@@ -100,7 +102,7 @@ svg {
 }
 
 .extra-filters-search-icon-close-lignt {
-  stroke: var(--primaty-black-color);
+  stroke: var(--primary-black-color);
 }
 
 .extra-filters-search-icon-close-dark {
@@ -148,7 +150,7 @@ svg {
 }
 
 .light-extra-filters-form-select:is(:hover, :focus) {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
 }
 
 .dark-extra-filters-form-select:is(:hover, :focus) {
@@ -161,12 +163,12 @@ option {
   overflow: auto;
 }
 option:is(:hover, :focus) {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   background-color: transparent;
 }
 
 .option-active {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   background-color: transparent;
 }
 
@@ -175,7 +177,7 @@ option:is(:hover, :focus) {
 }
 
 .option-choosed {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   background-color: transparent;
 }
 .extra-filters-reset-btn {
@@ -200,12 +202,12 @@ option:is(:hover, :focus) {
 
 @media screen and (min-width: 768px) {
   .extra-filters-section {
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
 
   .extra-filters-form {
     gap: 16px;
-    width: 544px;
+    /* width: 544px; */
     /* width: 419px; */
     /* width: 419px; оскільки кнопку перенесла всередину форми */
   }
@@ -260,7 +262,7 @@ option:is(:hover, :focus) {
 
 @media screen and (min-width: 1200px) {
   .extra-filters-section {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     /* width: 780px; */
   }
 

@@ -63,7 +63,7 @@
 }
 
 .header-link-favorites {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
 }
 
 /* Стили для логотипа "Tasty" */
@@ -78,7 +78,7 @@
 
 /* Стили для логотипа "Treats" */
 .header-logo-treats {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   text-align: center;
   letter-spacing: -4%;
   font-size: 18px;
@@ -416,7 +416,7 @@
 }
 
 .text-order-now {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -517,6 +517,6 @@ form {
 
 .header-send:hover,
 .header-send:focus {
-  color: var(--primaty-black-color);
+  color: var(--primary-black-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

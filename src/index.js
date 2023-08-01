@@ -7,6 +7,6 @@ import './js/extrafilters';
 import './js/theme-switcher';
 import './js/home_categories-api';
 import './js/popular-recipes';
-import './js/add-rating';
 import './js/recipe';
-
+import './js/add-rating';
+import './js/favorites';

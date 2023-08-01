@@ -76,17 +76,23 @@ function sendRatingToBackend(rating, email) {
 
   // MODAL open-close
 
-  (() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector("[data-modal-close-rating]"),
-    modal: document.querySelector("[data-modal-rating]"),
-  };
+document.addEventListener("DOMContentLoaded", function() {
+  const openModalBtn = document.getElementById("openModalBtn");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const modal = document.getElementById("myModal");
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
 
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
-  }
-})();
+  openModalBtn.addEventListener("click", function() {
+    modal.classList.toggle('is-hidden');
+  });
+
+  closeModalBtn.addEventListener("click", function() {
+    modal.classList.toggle('is-hidden');
+  });
+
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.classList.toggle('is-hidden');
+    }
+  });
+});
