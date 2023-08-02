@@ -15,26 +15,28 @@
   --var-text: #000;
   --accent-background: #383838;
   --accent: #9bb537;
+  --accent-menu: #9bb537;
   --grey: #b4b4b4;
   --var-dark: #050505;
   --var-grey: rgba(5, 5, 5, 0.5);
   --var-grey-menu: rgba(5, 5, 5, 0.3);
+  --var-grey-scrollbar: rgba(5, 5, 5, 0.18);
 }
 
 :root[data-theme='dark'] {
-  --var-background: #1e1e1e;
+  --var-background: #161616;
+  --accent-menu: #050505;
   --var-text: #fff;
   --var-dark: #ffffff;
   --var-grey: rgba(255, 255, 255, 0.5);
   --var-grey-menu: rgba(255, 255, 255, 0.3);
+  --var-grey-scrollbar: rgba(255, 255, 255, 0.18);
 }
 
 body {
   font-family: 'Inter';
+  background-color: var(--var-background);
   color: var(--primary-black-color);
-}
-* {
-  box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -61,16 +63,10 @@ svg {
 .container {
   margin: 0 auto;
 }
-.container-wrap {
-  display: flex;
-  gap: 32px;
-}
 
-.cards-filter {
-}
 @media screen and (max-width: 767px) {
   .container {
-    min-width: 375px;
+    max-width: 375px;
     padding: 0 20px;
   }
 }
@@ -82,6 +78,7 @@ svg {
 }
 @media screen and (min-width: 1280px) {
   .container {
+    outline: 2px tomato;
     width: 1280px;
     padding: 0 100px;
   }

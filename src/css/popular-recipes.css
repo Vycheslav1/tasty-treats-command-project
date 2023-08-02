@@ -1,7 +1,7 @@
 @media screen and (min-width: 375px) {
   .popular-recipes {
     width: 332px;
-    margin-right: 32px;
+    /* margin-right: 32px; */
     margin-bottom: 10px;
   }
   .article-poprecipes {
@@ -24,7 +24,7 @@
     font-size: 14px;
     line-height: 18px;
     text-transform: uppercase;
-    color: #050505;
+    color: var(--var-dark);
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -44,7 +44,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    color: rgba(5, 5, 5, 0.8);
+    color: var(--var-grey);
     text-align: left;
     /* flex: none;
     order: 1;
@@ -66,7 +66,7 @@
     font-size: 20px;
     line-height: 28px;
     text-transform: uppercase;
-    color: #050505;
+    color: var(--var-dark);
     margin-bottom: 20px;
   }
 
@@ -83,7 +83,7 @@
   .popular-recipes {
     width: 176px;
     margin-bottom: 16px;
-    margin-right: 32px;
+    /* margin-right: 32px; */
   }
 
   .article-poprecipes img {
@@ -113,7 +113,7 @@
     font-size: 14px;
     line-height: 18px;
     margin-bottom: 32px;
-    margin-right: 32px;
+    /* margin-right: 32px; */
   }
   .article-poprecipes-title {
     width: 120px;

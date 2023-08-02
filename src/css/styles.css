@@ -1,15 +1,24 @@
+/* all */
 @import url('./main.css');
-@import url('./extrafilters.css');
+/* Анастасія Щербула Scrum-мастер, HEDER */
 @import url('./header.css');
-@import url('./hero-favorites.css');
+/* Тетяна Москалюк hero*/
 @import url('./hero.css');
+/* Андрій Навроцький Order Now */
+@import url('./create-order.css');
+/* Рашин Олег Валерійович Favorites */
+@import url('./hero-favorites.css');
+/* Вікторія Ремінна Modal window-recipe */
 @import url('./recipe.css');
-@import url('./popular_recipes.css');
+/* Олександр Бабанський Popular Recipes */
+@import url('./popular-recipes.css');
+/* Безух Владислав Add rating */
 @import url('./add-rating.css');
-@import url('./home_categories.css');
+/* В'ячеслав Стетсенко */
+@import url('./home-categories.css');
+/* Безух Владислав Scroll up */
 @import url('./scroll-up.css');
+/*  Oksana Shypik Theme switcher */
 @import url('./switcher-style.css');
-@import url('./create_order.css');
-
-
-
+/* Анастасія Нікітіна Extra filters */
+@import url('./extrafilters.css');

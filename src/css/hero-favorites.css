@@ -12,8 +12,8 @@
     align-items: center;
     justify-content: center;
     background-position: fixed;
-    margin: auto;
-    margin-top: 42px;
+    margin: 0 auto;
+    /* margin-top: 42px; */
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 375px) and (max-width: 768px),

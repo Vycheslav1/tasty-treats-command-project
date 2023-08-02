@@ -1,9 +1,10 @@
+.hero {
+  background-color: var(--var-background);
+}
 .hero-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 335px;
-  margin: auto;
   padding-bottom: 42px;
 }
 .hero-text {
@@ -11,7 +12,7 @@
   margin-bottom: 28px;
 }
 .hero-first-title {
-  color: var(--primary-dark-color);
+  color: var(--var-dark);
   margin-bottom: 14px;
   font-size: 26px;
   font-style: normal;
@@ -28,7 +29,7 @@
 }
 .hero-description {
   width: 335px;
-  color: var(--primary-dark-color);
+  color: var(--var-dark);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -45,7 +46,7 @@
   align-items: center;
   gap: 10px;
   background-color: transparent;
-  color: var(--primary-dark-color);
+  color: var(--var-dark);
   border-radius: 15px;
   border: 1px solid var(--accent-color);
   font-size: 14px;
@@ -79,7 +80,7 @@ img {
 
 .image {
   height: 280px;
-  background-color: var(--primary-dark-color);
+  background-color: var(--primary-black-color);
 }
 .image:not(:last-child) {
   border-radius: 10px;
@@ -101,7 +102,7 @@ img {
   translate: 15% 35%;
   background: radial-gradient(
     var(--accent-color) -125%,
-    var(--primary-dark-color) 80%
+    var(--primary-black-color) 80%
   );
 }
 .second-dish {
@@ -149,7 +150,7 @@ img {
   height: 320px;
 }
 .swiper-pagination-bullet {
-  background-color: var(--primary-dark-color);
+  background-color: var(--var-dark);
   text-align: center;
   font-family: Poppins;
   font-size: 25px;
@@ -176,7 +177,6 @@ img {
 /* ======================== min-768px ====================== */
 @media screen and (min-width: 768px) {
   .hero-container {
-    max-width: 736px;
     padding-bottom: 80px;
     flex-direction: column;
   }
@@ -250,7 +250,6 @@ img {
 /* ======================== min-1200px ====================== */
 @media screen and (min-width: 1200px) {
   .hero-container {
-    max-width: 1280px;
     padding-bottom: 100px;
     justify-content: flex-start;
     flex-direction: row;

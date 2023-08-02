@@ -2,30 +2,25 @@
   <form class="extra-filters-form">
     <div class="form-el-wrap form-el-search">
       <label class="extra-filters-form-label light-extra-filters-label"
-        >Search
+        ><span>Search</span>
         <input
           type="text"
           name="username"
           placeholder="Enter Text"
-          class="extra-filters-form-input light-extra-filters-form-input"
+          class="extra-filters-form-input"
         />
         <svg class="extra-filters-search-icon" width="18" height="18">
           <use href="./images/sprite/icons.svg#icon-search"></use>
         </svg>
       </label>
+      <!-- <svg class="extra-filters-search-icon-close-lignt" width="18" height="18">
+          <use href="./images/sprite/icons.svg#icon-x"></use>
+        </svg> -->
       <button
         type="button"
         class="extra-filters-search-reset-btn"
         data-search-reset
-      >
-        <svg
-          class="extra-filters-search-icon-close-lignt"
-          width="18"
-          height="18"
-        >
-          <use href="./images/sprite/icons.svg#icon-x"></use>
-        </svg>
-      </button>
+      ></button>
     </div>
 
     <div class="form-el-wrap form-el-time">
@@ -90,6 +85,8 @@
         <option value="" class="ingredients">Ingredients</option>
       </select>
     </div>
+  </form>
+  <div class="extra-filters-reset-btn-wrap">
     <button
       type="submit"
       class="extra-filters-reset-btn"
@@ -100,5 +97,5 @@
       </svg>
       <span class="extra-filters-reset-text"> Reset the filter</span>
     </button>
-  </form>
+  </div>
 </section>

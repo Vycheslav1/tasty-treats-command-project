@@ -1,4 +1,6 @@
 import Notiflix from 'notiflix';
+import throttle from 'lodash/throttle';
+
 const openButtonHeroModal = document.querySelector('.btn-order');
 const closeButtonModal = document.querySelector(
   '.order-now-modal-button-close-js'
@@ -8,38 +10,62 @@ const openHederBasket = document.querySelector('.section__button1');
 const backdrop = document.querySelector('.js-backdrop');
 const formModalOrderNow = document.querySelector('.order-now-modal-form');
 const body = document.body;
+
 openHederBasket.addEventListener('click', onClickModalOpen);
 closeButtonModal.addEventListener('click', onClickModalRemove);
 backdrop.addEventListener('click', onClickBackdrop);
 formModalOrderNow.addEventListener('submit', onSubmitForm);
+
+formModalOrderNow.addEventListener('input', throttle(onInputForm, 500));
+const LOCALSTORAGE_KEY = 'feedback-form-state';
+
+receivingLocalStorageValue();
+
+function onInputForm(evt) {
+  const formData = {
+    name: formModalOrderNow.user_name.value,
+    phone: formModalOrderNow.user_phone.value,
+    email: formModalOrderNow.user_email.value,
+    comment: formModalOrderNow.user_comment.value,
+  };
+
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
+}
+
 if (openButtonHeroModal) {
   openButtonHeroModal.addEventListener('click', onClickModalOpen);
 }
 if (openHederBasketFavorite) {
   openHederBasketFavorite.addEventListener('click', onClickModalOpen);
 }
+
 function onClickModalOpen() {
   window.addEventListener('keydown', onEscKeyPress);
   body.classList.add('show-modal-order-now');
   body.style.overflow = 'hidden';
 }
+
 function onClickModalRemove() {
   window.removeEventListener('keydown', onEscKeyPress);
   body.classList.remove('show-modal-order-now');
   body.style.overflow = 'auto';
 }
+
 function onClickBackdrop(event) {
   if (event.currentTarget === event.target) {
     onClickModalRemove();
   }
 }
+
 function onEscKeyPress(event) {
   if (event.code === 'Escape') {
     onClickModalRemove();
   }
 }
+
 function onSubmitForm(event) {
   event.preventDefault();
+
   const formData = new FormData(formModalOrderNow);
   const inputNameValue = document.querySelector(
     'input[name="user_name"]'
@@ -53,14 +79,16 @@ function onSubmitForm(event) {
   const textareaCommentValue = document.querySelector(
     'textarea[name="user_comment"]'
   ).value;
+
   const dataToSend = {
     user_name: inputNameValue,
     user_phone: inputPhoneValue,
     user_email: inputEmailValue,
     user_comment: textareaCommentValue,
   };
+
   const url = 'https://tasty-treats-backend.p.goit.global/api/orders';
-  console.log(dataToSend);
+
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(dataToSend),
@@ -70,8 +98,6 @@ function onSubmitForm(event) {
   })
     .then(response => response.json())
     .then(data => {
-      // console.log('Відповідь від бекенду:', data);
-      data = dataToSend;
       Notiflix.Report.success(
         'Your data flew to the server',
         'if you sent valid information, wait for our call',
@@ -79,11 +105,12 @@ function onSubmitForm(event) {
         {
           width: '320px',
           svgSize: '60px',
-          messageFontSize: '20px',
+          titleFontSize: '20px',
+          messageFontSize: '16px',
           backgroundColor: '#fff',
           success: {
             notiflixIconColor: '#9bb537',
-            // svgColor: '#9bb537',
+            svgColor: '#32c682',
             titleColor: '#9bb537',
             messageColor: '#9bb537',
             buttonBackground: '#9bb537',
@@ -94,7 +121,7 @@ function onSubmitForm(event) {
       );
     })
     .catch(error => {
-      console.error('Помилка при відправці даних на бекенд:', error);
+      // console.error('Помилка при відправці даних на бекенд:', error);
       Notiflix.Report.warning(
         'THE MUSCOVITES BROKE IT ALL',
         'but the Muscovites cannot defeat the Ukrainians. We believe in Ukrainian defenders',
@@ -115,6 +142,20 @@ function onSubmitForm(event) {
         }
       );
     });
+
   onClickModalRemove();
+
+  localStorage.removeItem(LOCALSTORAGE_KEY);
   formModalOrderNow.reset();
+}
+
+function receivingLocalStorageValue() {
+  const localStorageValue = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+
+  if (localStorageValue) {
+    formModalOrderNow.user_name.value = localStorageValue.name;
+    formModalOrderNow.user_phone.value = localStorageValue.phone;
+    formModalOrderNow.user_email.value = localStorageValue.email;
+    formModalOrderNow.user_comment.value = localStorageValue.comment;
+  }
 }
