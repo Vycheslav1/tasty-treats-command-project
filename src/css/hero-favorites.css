@@ -42,7 +42,12 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(../images/card-favorites-hero-704-1x_480.jpg);
     border-radius: 15px;
-    
+    /* background-repeat: no-repeat; */
+    /* background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* margin-top: 42px; */
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1199px),
@@ -54,7 +59,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(../images/card-favorites-hero-704-2x_720.jpg);
     border-radius: 15px;
-    
+    /* background-repeat: no-repeat; */
   }
 }
 
@@ -68,8 +73,11 @@
       url(../images/card-favorites-hero-1080-1x_720.jpg);
     border-radius: 15px;
 
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center;  */
     background-position: center;
-   
+    /* margin-top: 42px; */
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
@@ -88,6 +96,7 @@
     background-position: center;
   }
 }
+
 .scrollmenu {
   overflow: auto;
   white-space: nowrap;
